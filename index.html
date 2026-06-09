@@ -2,9 +2,12 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
 <title>MISIÓN IA</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -12,293 +15,337 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+-webkit-tap-highlight-color:transparent;
 }
-
-/* 📱 SOLO CELULAR */
-
-@media(min-width:768px){
 
 body{
-display:none;
+font-family:'Poppins',sans-serif;
+background:#eefdff;
+overflow:hidden;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+color:#4c6277;
 }
 
-html{
-background:black;
-}
+/* FONDO */
 
-html::before{
-content:"📱 Este juego es solo para celulares";
-color:white;
-font-size:40px;
-font-family:Arial;
+.bg{
 position:fixed;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-text-align:center;
-width:80%;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:-1;
 }
-
-}
-
-body{
-font-family:Arial,sans-serif;
-background:linear-gradient(135deg,#f8ffff,#e9fdff,#dffcff);
-overflow-x:hidden;
-color:#3b4a5a;
-min-height:100vh;
-}
-
-/* FONDOS */
 
 .circle{
 position:absolute;
 border-radius:50%;
-opacity:0.4;
-z-index:-1;
+background:rgba(173,240,255,0.35);
 }
 
-.circle1{
-width:350px;
-height:350px;
-background:#c8f8ff;
-top:-120px;
-left:-120px;
+.c1{
+width:300px;
+height:300px;
+top:-80px;
+left:-100px;
 }
 
-.circle2{
-width:280px;
-height:280px;
-background:#dffcff;
-bottom:-100px;
-right:-100px;
+.c2{
+width:250px;
+height:250px;
+bottom:-90px;
+right:-80px;
 }
 
-.circle3{
-width:200px;
-height:200px;
-background:#bff6ff;
-top:55%;
-left:70%;
-}
-
-/* ESTRELLAS */
-
-.star{
-position:absolute;
-color:white;
-font-size:28px;
-animation:float 3s infinite ease-in-out;
-}
-
-.star1{
-top:10%;
-left:15%;
-}
-
-.star2{
-top:18%;
-right:20%;
-}
-
-.star3{
-bottom:15%;
-left:25%;
-}
-
-@keyframes float{
-0%{transform:translateY(0px);}
-50%{transform:translateY(-10px);}
-100%{transform:translateY(0px);}
+.c3{
+width:180px;
+height:180px;
+top:40%;
+right:-50px;
 }
 
 /* PANTALLAS */
 
-#mainMenu,
-#quizScreen,
-#finalScreen{
+.screen{
 width:100%;
-min-height:100vh;
+height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
 padding:20px;
 }
 
-#quizScreen,
-#finalScreen{
+.hidden{
 display:none;
 }
 
-.menuBox,
-#gameContainer,
-.finalBox{
+/* TARJETA */
+
+.card{
 width:100%;
-max-width:760px;
-background:rgba(255,255,255,0.85);
-backdrop-filter:blur(15px);
-border-radius:35px;
-padding:30px;
-box-shadow:0px 10px 40px rgba(0,0,0,0.08);
-}
-
-/* MENU */
-
-.menuBox{
+max-width:390px;
+background:rgba(255,255,255,0.82);
+backdrop-filter:blur(14px);
+border-radius:38px;
+padding:28px 22px;
+box-shadow:0 10px 35px rgba(0,0,0,0.08);
+text-align:center;
 position:relative;
 overflow:hidden;
-text-align:center;
 }
 
-.menuDecoration{
+.topShape{
 position:absolute;
-width:250px;
-height:250px;
-background:#c8f8ff;
+width:180px;
+height:180px;
+background:#dff9ff;
 border-radius:50%;
-top:-100px;
-right:-80px;
-opacity:0.6;
+top:-70px;
+right:-60px;
 }
 
-.robotFace{
-width:140px;
-height:140px;
-background:#dffcff;
+/* ROBOT */
+
+.robotBox{
+width:130px;
+height:130px;
+background:#dff9ff;
 border-radius:35px;
-margin:auto;
-margin-bottom:25px;
 display:flex;
 justify-content:center;
 align-items:center;
-animation:float 3s infinite ease-in-out;
+margin:auto;
+margin-bottom:18px;
+font-size:65px;
 }
 
-.menuBox h1{
-font-size:50px;
-color:#69dceb;
+/* TITULOS */
+
+h1{
+font-size:55px;
+font-weight:700;
+color:#5ad3e7;
+line-height:1;
 margin-bottom:10px;
 }
 
-.menuBox p{
-font-size:20px;
-color:#6f8396;
-margin-bottom:20px;
+.subtitle{
+font-size:18px;
+color:#6e8197;
+margin-bottom:28px;
+}
+
+/* INPUT */
+
+.inputBox{
+width:100%;
+height:62px;
+border:2px solid #444;
+border-radius:20px;
+display:flex;
+align-items:center;
+padding:0 20px;
+font-size:18px;
+background:white;
+margin-bottom:18px;
+}
+
+.inputBox input{
+border:none;
+outline:none;
+width:100%;
+font-size:18px;
+font-family:'Poppins',sans-serif;
+color:#54697f;
+background:transparent;
 }
 
 /* BOTONES */
 
-.menuBtn,
-.answerBtn,
-#continueBtn,
-#menuBtn{
+.menuBtn{
 width:100%;
-padding:18px;
-margin-top:15px;
+height:62px;
 border:none;
+border-radius:20px;
+margin-top:14px;
+font-size:22px;
+font-weight:600;
+background:#d5f7ff;
+color:#52677d;
+cursor:pointer;
+transition:0.2s;
+}
+
+.menuBtn:active{
+transform:scale(0.97);
+}
+
+/* CREDITOS */
+
+.credits{
+margin-top:18px;
+background:white;
+border-radius:22px;
+padding:18px;
+border:2px solid #eefcff;
+}
+
+.credits h3{
+font-size:22px;
+margin-bottom:8px;
+color:#5ad3e7;
+}
+
+.credits p{
+font-size:18px;
+line-height:1.5;
+}
+
+/* QUIZ */
+
+#question{
+font-size:30px;
+font-weight:600;
+margin-bottom:25px;
+color:#42586f;
+}
+
+.topInfo{
+display:flex;
+justify-content:space-between;
+margin-bottom:20px;
+gap:10px;
+}
+
+.info{
+flex:1;
+background:white;
+padding:12px;
 border-radius:18px;
 font-size:18px;
-cursor:pointer;
-transition:0.3s;
-font-weight:bold;
+font-weight:600;
+box-shadow:0 4px 10px rgba(0,0,0,0.05);
 }
 
-.menuBtn{
-background:linear-gradient(135deg,#c8f8ff,#e9fdff);
-color:#4f6275;
-}
-
-.menuBtn:hover{
-transform:scale(1.02);
-}
-
-.answerBtn{
-background:white;
-color:#4f6275;
-box-shadow:0px 4px 10px rgba(0,0,0,0.04);
-}
-
-.answerBtn:hover{
-background:#f2fcff;
-}
-
-.correct{
-background:#b9ffd2 !important;
-}
-
-.wrong{
-background:#ffd3d3 !important;
-}
-
-/* TOP */
-
-#topBar{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-margin-bottom:20px;
-justify-content:center;
-}
-
-.infoBox{
-background:#f4fdff;
-padding:12px 18px;
-border-radius:18px;
-font-size:17px;
-color:#5d7186;
-}
-
-/* BARRA */
-
-#progressBar{
+.progressBar{
 width:100%;
-height:18px;
-background:#ecf9fc;
-border-radius:20px;
+height:15px;
+background:#e6f9ff;
+border-radius:30px;
 overflow:hidden;
 margin-bottom:25px;
 }
 
-#progress{
-width:0%;
+.progress{
 height:100%;
-background:linear-gradient(90deg,#9befff,#d9fbff);
+width:0%;
+background:linear-gradient(90deg,#6de7ff,#9ff1ff);
 transition:0.4s;
 }
 
-/* PREGUNTAS */
-
-#questionBox{
-background:#f8feff;
-border-radius:25px;
-padding:25px;
+.answerBtn{
+width:100%;
+min-height:68px;
+border:none;
+border-radius:20px;
+margin-top:14px;
+background:white;
+font-size:20px;
+font-weight:500;
+color:#475d73;
+padding:10px;
+cursor:pointer;
+transition:0.2s;
+box-shadow:0 4px 10px rgba(0,0,0,0.04);
 }
 
-#question{
-font-size:25px;
-text-align:center;
-margin-bottom:25px;
+.answerBtn:active{
+transform:scale(0.97);
+}
+
+.correct{
+background:#cbffd9 !important;
+}
+
+.wrong{
+background:#ffd6d6 !important;
+}
+
+#continueBtn{
+display:none;
+background:#65def5;
+color:white;
+font-size:22px;
+font-weight:700;
+}
+
+/* TABLA */
+
+.leaderTitle{
+font-size:46px;
+font-weight:700;
+color:#59d4e8;
+margin-bottom:8px;
+}
+
+.leaderSub{
+font-size:18px;
+margin-bottom:20px;
+}
+
+.table{
+width:100%;
+background:white;
+border-radius:22px;
+overflow:hidden;
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+padding:16px 18px;
+border-bottom:1px solid #edf7fb;
+font-size:18px;
+font-weight:600;
+}
+
+.row:nth-child(1){
+background:#fff7d1;
+}
+
+.row:nth-child(2){
+background:#f4f4f4;
+}
+
+.row:nth-child(3){
+background:#ffe6d6;
+}
+
+.backBtn{
+width:100%;
+height:58px;
+margin-top:18px;
+border:none;
+border-radius:18px;
+background:#d7f7ff;
+font-size:20px;
+font-weight:700;
 }
 
 /* FINAL */
 
-.finalBox{
-text-align:center;
+#finalTitle{
+font-size:50px;
+color:#5ad3e7;
+margin-bottom:12px;
 }
 
-.character{
-font-size:80px;
-margin-bottom:20px;
-animation:float 3s infinite ease-in-out;
-}
-
-#leaderboard{
-margin-top:20px;
-}
-
-#leaderboard p{
-margin-top:10px;
-font-size:18px;
+#finalScore{
+font-size:28px;
+margin-bottom:25px;
+font-weight:700;
 }
 
 </style>
@@ -306,41 +353,34 @@ font-size:18px;
 
 <body>
 
-<div class="circle circle1"></div>
-<div class="circle circle2"></div>
-<div class="circle circle3"></div>
-
-<div class="star star1">✦</div>
-<div class="star star2">✦</div>
-<div class="star star3">✦</div>
+<div class="bg">
+<div class="circle c1"></div>
+<div class="circle c2"></div>
+<div class="circle c3"></div>
+</div>
 
 <!-- MENU -->
 
-<div id="mainMenu">
+<div class="screen" id="menuScreen">
 
-<div class="menuBox">
+<div class="card">
 
-<div class="menuDecoration"></div>
+<div class="topShape"></div>
 
-<div class="robotFace">
-<div id="robotEmoji" style="font-size:60px;">
+<div class="robotBox">
 🤖
-</div>
 </div>
 
 <h1>MISIÓN IA</h1>
 
-<p>
+<div class="subtitle">
 Aprende jugando sobre patrones de crianza ✨
-</p>
+</div>
 
-<input
-id="playerName"
-type="text"
-placeholder="👤 Escribe tu nombre"
-class="menuBtn"
-style="background:white;text-align:center;"
-/>
+<div class="inputBox">
+👤
+<input type="text" id="playerName" placeholder="Escribe tu nombre">
+</div>
 
 <button class="menuBtn" onclick="startGame()">
 ▶️ Jugar
@@ -350,51 +390,53 @@ style="background:white;text-align:center;"
 📖 Instrucciones
 </button>
 
+<button class="menuBtn" onclick="showLeaderboard()">
+🏆 Clasificación
+</button>
+
+<div class="credits">
+<h3>⭐ Créditos</h3>
+<p>
+Creado por<br>
+<b>Lucia Carolina Barcenas</b>
+</p>
 </div>
 
 </div>
 
-<!-- JUEGO -->
+</div>
 
-<div id="quizScreen">
+<!-- QUIZ -->
 
-<div id="gameContainer">
+<div class="screen hidden" id="quizScreen">
 
-<div id="topBar">
+<div class="card">
 
-<div class="infoBox">
+<div class="topInfo">
+
+<div class="info">
 ⭐ <span id="points">0</span>
 </div>
 
-<div class="infoBox">
-❤️ <span id="lives">3</span>
-</div>
-
-<div class="infoBox">
-⏳ <span id="timer">10</span>
-</div>
-
-<div class="infoBox">
-🔥 <span id="combo">0</span>
+<div class="info">
+📚 <span id="current">1</span>/<span id="total"></span>
 </div>
 
 </div>
 
-<div id="progressBar">
-<div id="progress"></div>
+<div class="progressBar">
+<div class="progress" id="progress"></div>
 </div>
 
-<div id="questionBox">
-
-<h2 id="question"></h2>
+<div id="question"></div>
 
 <div id="answers"></div>
 
-<button id="continueBtn">
+<button class="menuBtn" id="continueBtn">
 Continuar →
 </button>
 
-<button id="menuBtn" onclick="goToMenu()">
+<button class="backBtn" onclick="goMenu()">
 🏠 Menú
 </button>
 
@@ -402,208 +444,162 @@ Continuar →
 
 </div>
 
-</div>
-
 <!-- FINAL -->
 
-<div id="finalScreen">
+<div class="screen hidden" id="finalScreen">
 
-<div class="finalBox">
+<div class="card">
 
-<div class="character">🏆</div>
+<div style="font-size:90px;">🏆</div>
 
-<h1>¡COMPLETADO!</h1>
+<div id="finalTitle">
+¡COMPLETADO!
+</div>
 
-<h2 id="finalPoints"></h2>
-
-<div id="leaderboard"></div>
+<div id="finalScore"></div>
 
 <button class="menuBtn" onclick="restartGame()">
 🔄 Jugar otra vez
 </button>
 
-<button class="menuBtn" onclick="goToMenu()">
-🏠 Menú principal
+<button class="menuBtn" onclick="goMenu()">
+🏠 Menú
 </button>
 
 </div>
 
 </div>
 
-<script type="module">
+<!-- CLASIFICACION -->
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+<div class="screen hidden" id="leaderScreen">
 
-import {
-getFirestore,
-collection,
-addDoc,
-getDocs,
-query,
-orderBy,
-limit
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+<div class="card">
 
-const firebaseConfig = {
-apiKey: "AIzaSyCxdfOV3wv26INwjB9hXZDuIL_Q-SEv0UI",
-authDomain: "juego-lucy.firebaseapp.com",
-projectId: "juego-lucy",
-storageBucket: "juego-lucy.firebasestorage.app",
-messagingSenderId: "634003549609",
-appId: "1:634003549609:web:b000c14d0dd620e06e28b8",
-measurementId: "G-22PXLHBPDC"
-};
+<div class="leaderTitle">
+CLASIFICACIÓN
+</div>
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+<div class="leaderSub">
+🏆 Top jugadores
+</div>
+
+<div class="table" id="leaderboardTable">
+
+<div class="row">
+<span>🥇 LuciaIA</span>
+<span>580 ⭐</span>
+</div>
+
+<div class="row">
+<span>🥈 MateoPro</span>
+<span>450 ⭐</span>
+</div>
+
+<div class="row">
+<span>🥉 Sofia123</span>
+<span>320 ⭐</span>
+</div>
+
+</div>
+
+<button class="backBtn" onclick="goMenu()">
+⬅️ Volver
+</button>
+
+</div>
+
+</div>
+
+<script>
 
 const correctSound = new Audio("https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3");
-
 const wrongSound = new Audio("https://assets.mixkit.co/active_storage/sfx/2955/2955-preview.mp3");
-
-let current = 0;
-let points = 0;
-let lives = 3;
-let combo = 0;
-let timer = 10;
-let timerInterval;
-let playerName = "";
+const clickSound = new Audio("https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3");
 
 const questions = [
 
 {
-question:"¿Qué caracteriza al patrón democrático?",
+question:"¿Qué caracteriza al patrón de crianza democrático?",
 answers:[
-{text:"Castigos severos",correct:false},
 {text:"Comunicación y respeto",correct:true},
+{text:"Castigos severos",correct:false},
 {text:"Falta de límites",correct:false}
 ]
 },
 
 {
-question:"¿Qué pasa en la crianza permisiva?",
+question:"¿Qué ocurre en una crianza permisiva?",
 answers:[
-{text:"Hay pocas reglas",correct:true},
-{text:"Mucho castigo",correct:false},
-{text:"Disciplina extrema",correct:false}
+{text:"Hay muchas reglas",correct:false},
+{text:"Pocas reglas y límites",correct:true},
+{text:"Castigos estrictos",correct:false}
 ]
 },
 
 {
 question:"¿Qué mejora una buena crianza?",
 answers:[
-{text:"La autoestima",correct:true},
 {text:"La violencia",correct:false},
-{text:"El miedo",correct:false}
+{text:"El miedo",correct:false},
+{text:"La autoestima",correct:true}
 ]
 },
 
 {
 question:"¿Qué debe existir entre padres e hijos?",
 answers:[
-{text:"Confianza",correct:true},
+{text:"Miedo",correct:false},
 {text:"Desinterés",correct:false},
-{text:"Miedo",correct:false}
+{text:"Confianza y comunicación",correct:true}
 ]
 },
 
 {
-question:"¿Qué crianza suele ser estricta?",
+question:"¿Qué crianza suele ser muy estricta?",
 answers:[
-{text:"Autoritaria",correct:true},
 {text:"Permisiva",correct:false},
+{text:"Autoritaria",correct:true},
 {text:"Democrática",correct:false}
 ]
 }
 
 ];
 
-/* PREGUNTAS ALEATORIAS */
+let current = 0;
+let points = 0;
 
-questions.sort(() => Math.random() - 0.5);
+document.getElementById("total").innerHTML = questions.length;
 
-function showInstructions(){
+function startGame(){
 
-alert("Responde correctamente para ganar puntos ⭐");
+const player = document.getElementById("playerName").value.trim();
 
-}
-
-window.startGame = function(){
-
-playerName =
-document.getElementById("playerName").value.trim();
-
-if(playerName === ""){
-
+if(player === ""){
 alert("Escribe tu nombre");
-
 return;
-
 }
 
-document.getElementById("mainMenu").style.display =
-"none";
+clickSound.play();
 
-document.getElementById("quizScreen").style.display =
-"flex";
+document.getElementById("menuScreen").classList.add("hidden");
+document.getElementById("quizScreen").classList.remove("hidden");
 
 loadQuestion();
 
 }
 
-function startTimer(){
+function shuffle(array){
 
-clearInterval(timerInterval);
+for(let i=array.length-1;i>0;i--){
 
-timer = 10;
+const j=Math.floor(Math.random()*(i+1));
 
-document.getElementById("timer").innerHTML =
-timer;
-
-timerInterval = setInterval(()=>{
-
-timer--;
-
-document.getElementById("timer").innerHTML =
-timer;
-
-if(timer <= 0){
-
-clearInterval(timerInterval);
-
-lives--;
-
-document.getElementById("lives").innerHTML =
-lives;
-
-wrongSound.play();
-
-document.getElementById("robotEmoji").innerHTML =
-"😡";
-
-if(lives <= 0){
-
-gameOver();
-
-}else{
-
-current++;
-
-if(current < questions.length){
-
-loadQuestion();
-
-}else{
-
-finishGame();
+[array[i],array[j]]=[array[j],array[i]];
 
 }
 
-}
-
-}
-
-},1000);
+return array;
 
 }
 
@@ -611,27 +607,22 @@ function loadQuestion(){
 
 const q = questions[current];
 
-document.getElementById("robotEmoji").innerHTML =
-"🤖";
+document.getElementById("question").innerHTML = q.question;
 
-const shuffledAnswers =
-[...q.answers].sort(() => Math.random() - 0.5);
-
-document.getElementById("question").innerHTML =
-q.question;
+document.getElementById("current").innerHTML = current + 1;
 
 document.getElementById("progress").style.width =
 ((current)/questions.length)*100 + "%";
 
-const answersDiv =
-document.getElementById("answers");
+const answersDiv = document.getElementById("answers");
 
 answersDiv.innerHTML = "";
 
-document.getElementById("continueBtn").style.display =
-"none";
+document.getElementById("continueBtn").style.display = "none";
 
-shuffledAnswers.forEach(answer=>{
+const mixedAnswers = shuffle([...q.answers]);
+
+mixedAnswers.forEach(answer=>{
 
 const btn = document.createElement("button");
 
@@ -645,16 +636,13 @@ answersDiv.appendChild(btn);
 
 });
 
-startTimer();
-
 }
 
 function selectAnswer(button,correct){
 
-clearInterval(timerInterval);
+clickSound.play();
 
-const buttons =
-document.querySelectorAll(".answerBtn");
+const buttons = document.querySelectorAll(".answerBtn");
 
 buttons.forEach(btn=>{
 btn.disabled = true;
@@ -666,56 +654,23 @@ button.classList.add("correct");
 
 points += 10;
 
-combo++;
-
-document.getElementById("robotEmoji").innerHTML =
-"🥳";
-
-if(combo >= 3){
-
-points += 5;
-
-}
-
 correctSound.play();
 
 }else{
 
 button.classList.add("wrong");
 
-combo = 0;
-
-lives--;
-
-document.getElementById("robotEmoji").innerHTML =
-"😡";
-
 wrongSound.play();
 
-if(lives <= 0){
+}
 
-gameOver();
+document.getElementById("points").innerHTML = points;
+
+document.getElementById("continueBtn").style.display = "block";
 
 }
 
-}
-
-document.getElementById("points").innerHTML =
-points;
-
-document.getElementById("combo").innerHTML =
-combo;
-
-document.getElementById("lives").innerHTML =
-lives;
-
-document.getElementById("continueBtn").style.display =
-"block";
-
-}
-
-document.getElementById("continueBtn").onclick =
-()=>{
+document.getElementById("continueBtn").onclick = ()=>{
 
 current++;
 
@@ -731,128 +686,130 @@ finishGame();
 
 };
 
-async function saveScore(){
+function finishGame(){
 
-await addDoc(
-collection(db,"scores"),
-{
-name: playerName,
-points: points
-}
-);
+document.getElementById("quizScreen").classList.add("hidden");
+document.getElementById("finalScreen").classList.remove("hidden");
 
-}
+document.getElementById("finalScore").innerHTML =
+"⭐ Puntaje final: " + points;
 
-async function loadLeaderboard(){
-
-const q = query(
-collection(db,"scores"),
-orderBy("points","desc"),
-limit(10)
-);
-
-const querySnapshot =
-await getDocs(q);
-
-let html = "<h2>🏆 TOP 10</h2>";
-
-let pos = 1;
-
-querySnapshot.forEach((doc)=>{
-
-const data = doc.data();
-
-html += `
-<p>
-${pos}. ${data.name} - ⭐ ${data.points}
-</p>
-`;
-
-pos++;
-
-});
-
-document.getElementById("leaderboard").innerHTML =
-html;
+saveScore();
 
 }
 
-function gameOver(){
-
-document.getElementById("quizScreen").style.display =
-"none";
-
-document.getElementById("finalScreen").style.display =
-"flex";
-
-document.getElementById("finalPoints").innerHTML =
-`
-💀 GAME OVER
-<br><br>
-⭐ ${points} puntos
-`;
-
-loadLeaderboard();
-
-}
-
-async function finishGame(){
-
-await saveScore();
-
-document.getElementById("quizScreen").style.display =
-"none";
-
-document.getElementById("finalScreen").style.display =
-"flex";
-
-document.getElementById("finalPoints").innerHTML =
-`
-👤 ${playerName}
-<br><br>
-⭐ ${points} puntos
-`;
-
-loadLeaderboard();
-
-}
-
-window.restartGame = function(){
+function restartGame(){
 
 current = 0;
 points = 0;
-lives = 3;
-combo = 0;
 
-document.getElementById("finalScreen").style.display =
-"none";
+document.getElementById("points").innerHTML = "0";
 
-document.getElementById("quizScreen").style.display =
-"flex";
-
-document.getElementById("points").innerHTML =
-points;
-
-document.getElementById("lives").innerHTML =
-lives;
-
-document.getElementById("combo").innerHTML =
-combo;
+document.getElementById("finalScreen").classList.add("hidden");
+document.getElementById("quizScreen").classList.remove("hidden");
 
 loadQuestion();
 
 }
 
-window.goToMenu = function(){
+function goMenu(){
 
-document.getElementById("quizScreen").style.display =
-"none";
+clickSound.play();
 
-document.getElementById("finalScreen").style.display =
-"none";
+document.getElementById("quizScreen").classList.add("hidden");
+document.getElementById("finalScreen").classList.add("hidden");
+document.getElementById("leaderScreen").classList.add("hidden");
 
-document.getElementById("mainMenu").style.display =
-"flex";
+document.getElementById("menuScreen").classList.remove("hidden");
+
+current = 0;
+points = 0;
+
+document.getElementById("points").innerHTML = "0";
+
+document.getElementById("progress").style.width = "0%";
+
+}
+
+function showInstructions(){
+
+alert("Responde correctamente las preguntas para ganar puntos ⭐");
+
+}
+
+function showLeaderboard(){
+
+clickSound.play();
+
+document.getElementById("menuScreen").classList.add("hidden");
+document.getElementById("leaderScreen").classList.remove("hidden");
+
+loadLeaderboard();
+
+}
+
+function saveScore(){
+
+const player =
+document.getElementById("playerName").value;
+
+let scores =
+JSON.parse(localStorage.getItem("scores")) || [];
+
+scores.push({
+name:player,
+points:points
+});
+
+scores.sort((a,b)=>b.points-a.points);
+
+scores = scores.slice(0,10);
+
+localStorage.setItem("scores",JSON.stringify(scores));
+
+}
+
+function loadLeaderboard(){
+
+const table =
+document.getElementById("leaderboardTable");
+
+let scores =
+JSON.parse(localStorage.getItem("scores")) || [];
+
+table.innerHTML = "";
+
+if(scores.length === 0){
+
+table.innerHTML = `
+<div class="row">
+<span>Sin jugadores aún</span>
+<span>⭐</span>
+</div>
+`;
+
+return;
+
+}
+
+scores.forEach((player,index)=>{
+
+let medal = (index+1);
+
+if(index===0) medal="🥇";
+if(index===1) medal="🥈";
+if(index===2) medal="🥉";
+
+table.innerHTML += `
+
+<div class="row">
+<span>${medal} ${player.name}</span>
+<span>${player.points} ⭐</span>
+</div>
+
+`;
+
+});
 
 }
 
