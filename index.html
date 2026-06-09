@@ -2,12 +2,9 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>MISIÓN IA</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -15,337 +12,350 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
--webkit-tap-highlight-color:transparent;
 }
 
 body{
-font-family:'Poppins',sans-serif;
-background:#eefdff;
+font-family:Arial, sans-serif;
+background:linear-gradient(135deg,#f8ffff,#e9fdff,#dffcff);
 overflow:hidden;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-color:#4c6277;
+color:#3b4a5a;
 }
 
 /* FONDO */
 
-.bg{
-position:fixed;
-width:100%;
-height:100%;
-overflow:hidden;
-z-index:-1;
-}
-
 .circle{
 position:absolute;
 border-radius:50%;
-background:rgba(173,240,255,0.35);
+opacity:0.4;
+z-index:-1;
 }
 
-.c1{
-width:300px;
-height:300px;
-top:-80px;
+.circle1{
+width:280px;
+height:280px;
+background:#c8f8ff;
+top:-100px;
 left:-100px;
 }
 
-.c2{
-width:250px;
-height:250px;
-bottom:-90px;
+.circle2{
+width:240px;
+height:240px;
+background:#dffcff;
+bottom:-80px;
 right:-80px;
 }
 
-.c3{
-width:180px;
-height:180px;
-top:40%;
-right:-50px;
+.circle3{
+width:160px;
+height:160px;
+background:#bff6ff;
+top:60%;
+left:70%;
 }
 
-/* PANTALLAS */
+/* MENU */
 
-.screen{
+#mainMenu{
 width:100%;
-height:100vh;
+min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
 padding:20px;
 }
 
-.hidden{
-display:none;
-}
-
-/* TARJETA */
-
-.card{
+.menuBox{
 width:100%;
-max-width:390px;
-background:rgba(255,255,255,0.82);
-backdrop-filter:blur(14px);
-border-radius:38px;
-padding:28px 22px;
-box-shadow:0 10px 35px rgba(0,0,0,0.08);
+max-width:320px;
+background:rgba(255,255,255,0.92);
+border-radius:35px;
+padding:24px 18px;
 text-align:center;
 position:relative;
 overflow:hidden;
+border:2px solid #dffcff;
+box-shadow:0px 8px 25px rgba(0,0,0,0.06);
 }
 
-.topShape{
+.menuDecoration{
 position:absolute;
 width:180px;
 height:180px;
-background:#dff9ff;
+background:#c8f8ff;
 border-radius:50%;
-top:-70px;
-right:-60px;
+top:-80px;
+right:-70px;
+opacity:0.5;
+}
+
+.menuDecoration2{
+position:absolute;
+width:140px;
+height:140px;
+background:#dffcff;
+border-radius:50%;
+bottom:-70px;
+left:-60px;
+opacity:0.5;
 }
 
 /* ROBOT */
 
 .robotBox{
-width:130px;
-height:130px;
-background:#dff9ff;
-border-radius:35px;
+width:150px;
+height:120px;
+background:#dffcff;
+border-radius:30px;
+margin:auto;
+margin-bottom:18px;
 display:flex;
 justify-content:center;
 align-items:center;
-margin:auto;
-margin-bottom:18px;
-font-size:65px;
-}
-
-/* TITULOS */
-
-h1{
 font-size:55px;
-font-weight:700;
-color:#5ad3e7;
-line-height:1;
-margin-bottom:10px;
 }
 
-.subtitle{
-font-size:18px;
-color:#6e8197;
-margin-bottom:28px;
+/* TITULO */
+
+.menuBox h1{
+font-size:48px;
+color:#69dceb;
+margin-bottom:8px;
+font-weight:900;
+}
+
+.menuBox p{
+font-size:15px;
+color:#6f8396;
+margin-bottom:22px;
+line-height:1.4;
 }
 
 /* INPUT */
 
-.inputBox{
+#playerName{
 width:100%;
-height:62px;
-border:2px solid #444;
-border-radius:20px;
-display:flex;
-align-items:center;
-padding:0 20px;
-font-size:18px;
-background:white;
-margin-bottom:18px;
-}
-
-.inputBox input{
+padding:16px;
 border:none;
+border-radius:18px;
+font-size:16px;
+margin-bottom:14px;
 outline:none;
-width:100%;
-font-size:18px;
-font-family:'Poppins',sans-serif;
-color:#54697f;
-background:transparent;
+text-align:center;
+background:white;
+color:#4f6275;
+border:2px solid #d9f9ff;
 }
 
 /* BOTONES */
 
 .menuBtn{
 width:100%;
-height:62px;
+padding:16px;
+margin-top:12px;
 border:none;
-border-radius:20px;
-margin-top:14px;
-font-size:22px;
-font-weight:600;
-background:#d5f7ff;
-color:#52677d;
+border-radius:18px;
+background:linear-gradient(135deg,#c8f8ff,#e9fdff);
+color:#4f6275;
+font-size:17px;
 cursor:pointer;
-transition:0.2s;
+transition:0.3s;
+font-weight:bold;
 }
 
-.menuBtn:active{
-transform:scale(0.97);
+.menuBtn:hover{
+transform:scale(1.02);
 }
 
 /* CREDITOS */
 
 .credits{
-margin-top:18px;
-background:white;
-border-radius:22px;
-padding:18px;
-border:2px solid #eefcff;
-}
-
-.credits h3{
-font-size:22px;
-margin-bottom:8px;
-color:#5ad3e7;
-}
-
-.credits p{
-font-size:18px;
-line-height:1.5;
+margin-top:20px;
+font-size:13px;
+color:#7d8fa3;
 }
 
 /* QUIZ */
 
-#question{
-font-size:30px;
-font-weight:600;
-margin-bottom:25px;
-color:#42586f;
+#quizScreen{
+display:none;
+width:100%;
+height:100vh;
+justify-content:center;
+align-items:center;
+padding:15px;
 }
 
-.topInfo{
+#gameContainer{
+width:100%;
+max-width:360px;
+background:rgba(255,255,255,0.92);
+border-radius:30px;
+padding:22px;
+box-shadow:0px 10px 30px rgba(0,0,0,0.06);
+}
+
+/* TOP */
+
+#topBar{
 display:flex;
 justify-content:space-between;
-margin-bottom:20px;
+margin-bottom:15px;
 gap:10px;
 }
 
-.info{
-flex:1;
-background:white;
+.infoBox{
+background:#f4fdff;
 padding:12px;
-border-radius:18px;
-font-size:18px;
-font-weight:600;
-box-shadow:0 4px 10px rgba(0,0,0,0.05);
-}
-
-.progressBar{
+border-radius:15px;
+font-size:14px;
+color:#5d7186;
 width:100%;
-height:15px;
-background:#e6f9ff;
-border-radius:30px;
-overflow:hidden;
-margin-bottom:25px;
+text-align:center;
 }
 
-.progress{
-height:100%;
-width:0%;
-background:linear-gradient(90deg,#6de7ff,#9ff1ff);
-transition:0.4s;
-}
+/* BARRA */
 
-.answerBtn{
+#progressBar{
 width:100%;
-min-height:68px;
-border:none;
+height:14px;
+background:#ecf9fc;
 border-radius:20px;
-margin-top:14px;
-background:white;
-font-size:20px;
-font-weight:500;
-color:#475d73;
-padding:10px;
-cursor:pointer;
-transition:0.2s;
-box-shadow:0 4px 10px rgba(0,0,0,0.04);
-}
-
-.answerBtn:active{
-transform:scale(0.97);
-}
-
-.correct{
-background:#cbffd9 !important;
-}
-
-.wrong{
-background:#ffd6d6 !important;
-}
-
-#continueBtn{
-display:none;
-background:#65def5;
-color:white;
-font-size:22px;
-font-weight:700;
-}
-
-/* TABLA */
-
-.leaderTitle{
-font-size:46px;
-font-weight:700;
-color:#59d4e8;
-margin-bottom:8px;
-}
-
-.leaderSub{
-font-size:18px;
+overflow:hidden;
 margin-bottom:20px;
 }
 
-.table{
+#progress{
+width:0%;
+height:100%;
+background:linear-gradient(90deg,#9befff,#d9fbff);
+transition:0.4s;
+}
+
+/* PREGUNTA */
+
+#question{
+font-size:22px;
+text-align:center;
+margin-bottom:22px;
+color:#4f6275;
+}
+
+/* RESPUESTAS */
+
+.answerBtn{
 width:100%;
-background:white;
-border-radius:22px;
-overflow:hidden;
-}
-
-.row{
-display:flex;
-justify-content:space-between;
-padding:16px 18px;
-border-bottom:1px solid #edf7fb;
-font-size:18px;
-font-weight:600;
-}
-
-.row:nth-child(1){
-background:#fff7d1;
-}
-
-.row:nth-child(2){
-background:#f4f4f4;
-}
-
-.row:nth-child(3){
-background:#ffe6d6;
-}
-
-.backBtn{
-width:100%;
-height:58px;
-margin-top:18px;
+padding:16px;
+margin-top:12px;
 border:none;
 border-radius:18px;
-background:#d7f7ff;
-font-size:20px;
-font-weight:700;
+background:white;
+color:#4f6275;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0px 4px 10px rgba(0,0,0,0.04);
+}
+
+.answerBtn:hover{
+background:#f2fcff;
+}
+
+.correct{
+background:#b9ffd2 !important;
+}
+
+.wrong{
+background:#ffd3d3 !important;
+}
+
+/* BOTONES */
+
+#continueBtn,
+#menuBtn2{
+width:100%;
+padding:16px;
+margin-top:14px;
+border:none;
+border-radius:18px;
+background:#b8f5ff;
+color:#3b4a5a;
+font-size:17px;
+cursor:pointer;
+font-weight:bold;
 }
 
 /* FINAL */
 
-#finalTitle{
-font-size:50px;
-color:#5ad3e7;
-margin-bottom:12px;
+#finalScreen{
+display:none;
+width:100%;
+height:100vh;
+justify-content:center;
+align-items:center;
+padding:20px;
 }
 
-#finalScore{
-font-size:28px;
-margin-bottom:25px;
-font-weight:700;
+.finalBox{
+width:100%;
+max-width:320px;
+background:rgba(255,255,255,0.92);
+border-radius:35px;
+padding:30px 20px;
+text-align:center;
+}
+
+.finalBox h1{
+font-size:42px;
+color:#64d8eb;
+margin-bottom:15px;
+}
+
+.finalBox p{
+margin-top:10px;
+color:#7b8ca0;
+font-size:18px;
+}
+
+.character{
+font-size:70px;
+margin-bottom:20px;
+}
+
+/* CLASIFICACION */
+
+#leaderboardScreen{
+display:none;
+width:100%;
+height:100vh;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.leaderboardBox{
+width:100%;
+max-width:330px;
+background:white;
+border-radius:30px;
+padding:25px;
+text-align:center;
+}
+
+.leaderboardBox h2{
+font-size:30px;
+margin-bottom:20px;
+color:#69dceb;
+}
+
+.playerRow{
+display:flex;
+justify-content:space-between;
+padding:12px;
+background:#f4fdff;
+border-radius:15px;
+margin-top:10px;
+font-size:15px;
 }
 
 </style>
@@ -353,19 +363,18 @@ font-weight:700;
 
 <body>
 
-<div class="bg">
-<div class="circle c1"></div>
-<div class="circle c2"></div>
-<div class="circle c3"></div>
-</div>
+<div class="circle circle1"></div>
+<div class="circle circle2"></div>
+<div class="circle circle3"></div>
 
 <!-- MENU -->
 
-<div class="screen" id="menuScreen">
+<div id="mainMenu">
 
-<div class="card">
+<div class="menuBox">
 
-<div class="topShape"></div>
+<div class="menuDecoration"></div>
+<div class="menuDecoration2"></div>
 
 <div class="robotBox">
 🤖
@@ -373,14 +382,11 @@ font-weight:700;
 
 <h1>MISIÓN IA</h1>
 
-<div class="subtitle">
+<p>
 Aprende jugando sobre patrones de crianza ✨
-</div>
+</p>
 
-<div class="inputBox">
-👤
-<input type="text" id="playerName" placeholder="Escribe tu nombre">
-</div>
+<input type="text" id="playerName" placeholder="👤 Escribe tu nombre">
 
 <button class="menuBtn" onclick="startGame()">
 ▶️ Jugar
@@ -395,11 +401,7 @@ Aprende jugando sobre patrones de crianza ✨
 </button>
 
 <div class="credits">
-<h3>⭐ Créditos</h3>
-<p>
-Creado por<br>
-<b>Lucia Carolina Barcenas</b>
-</p>
+Creado por Lucia Carolina Barcenas 💙
 </div>
 
 </div>
@@ -408,35 +410,35 @@ Creado por<br>
 
 <!-- QUIZ -->
 
-<div class="screen hidden" id="quizScreen">
+<div id="quizScreen">
 
-<div class="card">
+<div id="gameContainer">
 
-<div class="topInfo">
+<div id="topBar">
 
-<div class="info">
-⭐ <span id="points">0</span>
+<div class="infoBox">
+⭐ <span id="points">0</span> pts
 </div>
 
-<div class="info">
-📚 <span id="current">1</span>/<span id="total"></span>
+<div class="infoBox">
+📚 <span id="currentQuestion">1</span>/<span id="totalQuestions">5</span>
 </div>
 
 </div>
 
-<div class="progressBar">
-<div class="progress" id="progress"></div>
+<div id="progressBar">
+<div id="progress"></div>
 </div>
 
-<div id="question"></div>
+<h2 id="question"></h2>
 
 <div id="answers"></div>
 
-<button class="menuBtn" id="continueBtn">
+<button id="continueBtn">
 Continuar →
 </button>
 
-<button class="backBtn" onclick="goMenu()">
+<button id="menuBtn2" onclick="goToMenu()">
 🏠 Menú
 </button>
 
@@ -446,24 +448,26 @@ Continuar →
 
 <!-- FINAL -->
 
-<div class="screen hidden" id="finalScreen">
+<div id="finalScreen">
 
-<div class="card">
+<div class="finalBox">
 
-<div style="font-size:90px;">🏆</div>
+<div class="character">🏆</div>
 
-<div id="finalTitle">
-¡COMPLETADO!
-</div>
+<h1>¡COMPLETADO!</h1>
 
-<div id="finalScore"></div>
+<h2 id="finalPoints"></h2>
+
+<p>
+Terminaste el reto educativo 😎
+</p>
 
 <button class="menuBtn" onclick="restartGame()">
 🔄 Jugar otra vez
 </button>
 
-<button class="menuBtn" onclick="goMenu()">
-🏠 Menú
+<button class="menuBtn" onclick="goToMenu()">
+🏠 Menú principal
 </button>
 
 </div>
@@ -472,39 +476,23 @@ Continuar →
 
 <!-- CLASIFICACION -->
 
-<div class="screen hidden" id="leaderScreen">
+<div id="leaderboardScreen">
 
-<div class="card">
+<div class="leaderboardBox">
 
-<div class="leaderTitle">
-CLASIFICACIÓN
-</div>
+<h2>🏆 Clasificación</h2>
 
-<div class="leaderSub">
-🏆 Top jugadores
-</div>
+<div id="leaderboardList">
 
-<div class="table" id="leaderboardTable">
-
-<div class="row">
-<span>🥇 LuciaIA</span>
-<span>580 ⭐</span>
-</div>
-
-<div class="row">
-<span>🥈 MateoPro</span>
-<span>450 ⭐</span>
-</div>
-
-<div class="row">
-<span>🥉 Sofia123</span>
-<span>320 ⭐</span>
+<div class="playerRow">
+<span>Jugador</span>
+<span>0 pts</span>
 </div>
 
 </div>
 
-<button class="backBtn" onclick="goMenu()">
-⬅️ Volver
+<button class="menuBtn" onclick="goToMenu()">
+🏠 Volver
 </button>
 
 </div>
@@ -513,27 +501,23 @@ CLASIFICACIÓN
 
 <script>
 
-const correctSound = new Audio("https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3");
-const wrongSound = new Audio("https://assets.mixkit.co/active_storage/sfx/2955/2955-preview.mp3");
-const clickSound = new Audio("https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3");
-
 const questions = [
 
 {
-question:"¿Qué caracteriza al patrón de crianza democrático?",
+question:"¿Qué caracteriza al patrón democrático?",
 answers:[
-{text:"Comunicación y respeto",correct:true},
-{text:"Castigos severos",correct:false},
-{text:"Falta de límites",correct:false}
+{text:"La comunicación y respeto",correct:true},
+{text:"El castigo excesivo",correct:false},
+{text:"La falta de reglas",correct:false}
 ]
 },
 
 {
 question:"¿Qué ocurre en una crianza permisiva?",
 answers:[
-{text:"Hay muchas reglas",correct:false},
-{text:"Pocas reglas y límites",correct:true},
-{text:"Castigos estrictos",correct:false}
+{text:"Hay pocas reglas",correct:true},
+{text:"Existe disciplina extrema",correct:false},
+{text:"Hay castigos fuertes",correct:false}
 ]
 },
 
@@ -541,8 +525,8 @@ answers:[
 question:"¿Qué mejora una buena crianza?",
 answers:[
 {text:"La violencia",correct:false},
-{text:"El miedo",correct:false},
-{text:"La autoestima",correct:true}
+{text:"La autoestima",correct:true},
+{text:"El miedo",correct:false}
 ]
 },
 
@@ -550,8 +534,8 @@ answers:[
 question:"¿Qué debe existir entre padres e hijos?",
 answers:[
 {text:"Miedo",correct:false},
-{text:"Desinterés",correct:false},
-{text:"Confianza y comunicación",correct:true}
+{text:"Confianza y comunicación",correct:true},
+{text:"Desinterés",correct:false}
 ]
 },
 
@@ -569,37 +553,48 @@ answers:[
 let current = 0;
 let points = 0;
 
-document.getElementById("total").innerHTML = questions.length;
+document.getElementById("totalQuestions").innerHTML =
+questions.length;
+
+function shuffle(array){
+
+for(let i = array.length - 1; i > 0; i--){
+
+const j = Math.floor(Math.random() * (i + 1));
+
+[array[i], array[j]] = [array[j], array[i]];
+
+}
+
+}
 
 function startGame(){
 
-const player = document.getElementById("playerName").value.trim();
+const name = document.getElementById("playerName").value;
 
-if(player === ""){
+if(name.trim() == ""){
 alert("Escribe tu nombre");
 return;
 }
 
-clickSound.play();
+document.getElementById("mainMenu").style.display =
+"none";
 
-document.getElementById("menuScreen").classList.add("hidden");
-document.getElementById("quizScreen").classList.remove("hidden");
+document.getElementById("quizScreen").style.display =
+"flex";
+
+current = 0;
+points = 0;
+
+document.getElementById("points").innerHTML = points;
 
 loadQuestion();
 
 }
 
-function shuffle(array){
+function showInstructions(){
 
-for(let i=array.length-1;i>0;i--){
-
-const j=Math.floor(Math.random()*(i+1));
-
-[array[i],array[j]]=[array[j],array[i]];
-
-}
-
-return array;
+alert("Responde correctamente para ganar puntos ⭐");
 
 }
 
@@ -607,9 +602,11 @@ function loadQuestion(){
 
 const q = questions[current];
 
-document.getElementById("question").innerHTML = q.question;
+document.getElementById("question").innerHTML =
+q.question;
 
-document.getElementById("current").innerHTML = current + 1;
+document.getElementById("currentQuestion").innerHTML =
+current + 1;
 
 document.getElementById("progress").style.width =
 ((current)/questions.length)*100 + "%";
@@ -618,11 +615,12 @@ const answersDiv = document.getElementById("answers");
 
 answersDiv.innerHTML = "";
 
-document.getElementById("continueBtn").style.display = "none";
+document.getElementById("continueBtn").style.display =
+"none";
 
-const mixedAnswers = shuffle([...q.answers]);
+shuffle(q.answers);
 
-mixedAnswers.forEach(answer=>{
+q.answers.forEach(answer=>{
 
 const btn = document.createElement("button");
 
@@ -640,8 +638,6 @@ answersDiv.appendChild(btn);
 
 function selectAnswer(button,correct){
 
-clickSound.play();
-
 const buttons = document.querySelectorAll(".answerBtn");
 
 buttons.forEach(btn=>{
@@ -654,19 +650,17 @@ button.classList.add("correct");
 
 points += 10;
 
-correctSound.play();
-
 }else{
 
 button.classList.add("wrong");
 
-wrongSound.play();
-
 }
 
-document.getElementById("points").innerHTML = points;
+document.getElementById("points").innerHTML =
+points;
 
-document.getElementById("continueBtn").style.display = "block";
+document.getElementById("continueBtn").style.display =
+"block";
 
 }
 
@@ -688,11 +682,14 @@ finishGame();
 
 function finishGame(){
 
-document.getElementById("quizScreen").classList.add("hidden");
-document.getElementById("finalScreen").classList.remove("hidden");
+document.getElementById("quizScreen").style.display =
+"none";
 
-document.getElementById("finalScore").innerHTML =
-"⭐ Puntaje final: " + points;
+document.getElementById("finalScreen").style.display =
+"flex";
+
+document.getElementById("finalPoints").innerHTML =
+"⭐ Puntuación final: " + points;
 
 saveScore();
 
@@ -700,111 +697,75 @@ saveScore();
 
 function restartGame(){
 
-current = 0;
-points = 0;
+document.getElementById("finalScreen").style.display =
+"none";
 
-document.getElementById("points").innerHTML = "0";
-
-document.getElementById("finalScreen").classList.add("hidden");
-document.getElementById("quizScreen").classList.remove("hidden");
-
-loadQuestion();
+startGame();
 
 }
 
-function goMenu(){
+function goToMenu(){
 
-clickSound.play();
+document.getElementById("quizScreen").style.display =
+"none";
 
-document.getElementById("quizScreen").classList.add("hidden");
-document.getElementById("finalScreen").classList.add("hidden");
-document.getElementById("leaderScreen").classList.add("hidden");
+document.getElementById("finalScreen").style.display =
+"none";
 
-document.getElementById("menuScreen").classList.remove("hidden");
+document.getElementById("leaderboardScreen").style.display =
+"none";
 
-current = 0;
-points = 0;
-
-document.getElementById("points").innerHTML = "0";
-
-document.getElementById("progress").style.width = "0%";
-
-}
-
-function showInstructions(){
-
-alert("Responde correctamente las preguntas para ganar puntos ⭐");
-
-}
-
-function showLeaderboard(){
-
-clickSound.play();
-
-document.getElementById("menuScreen").classList.add("hidden");
-document.getElementById("leaderScreen").classList.remove("hidden");
-
-loadLeaderboard();
+document.getElementById("mainMenu").style.display =
+"flex";
 
 }
 
 function saveScore(){
 
-const player =
-document.getElementById("playerName").value;
+const name = document.getElementById("playerName").value;
 
-let scores =
-JSON.parse(localStorage.getItem("scores")) || [];
+let leaderboard =
+JSON.parse(localStorage.getItem("leaderboard")) || [];
 
-scores.push({
-name:player,
-points:points
+leaderboard.push({
+name:name,
+score:points
 });
 
-scores.sort((a,b)=>b.points-a.points);
+leaderboard.sort((a,b)=>b.score-a.score);
 
-scores = scores.slice(0,10);
+leaderboard = leaderboard.slice(0,10);
 
-localStorage.setItem("scores",JSON.stringify(scores));
-
-}
-
-function loadLeaderboard(){
-
-const table =
-document.getElementById("leaderboardTable");
-
-let scores =
-JSON.parse(localStorage.getItem("scores")) || [];
-
-table.innerHTML = "";
-
-if(scores.length === 0){
-
-table.innerHTML = `
-<div class="row">
-<span>Sin jugadores aún</span>
-<span>⭐</span>
-</div>
-`;
-
-return;
+localStorage.setItem(
+"leaderboard",
+JSON.stringify(leaderboard)
+);
 
 }
 
-scores.forEach((player,index)=>{
+function showLeaderboard(){
 
-let medal = (index+1);
+document.getElementById("mainMenu").style.display =
+"none";
 
-if(index===0) medal="🥇";
-if(index===1) medal="🥈";
-if(index===2) medal="🥉";
+document.getElementById("leaderboardScreen").style.display =
+"flex";
 
-table.innerHTML += `
+const leaderboard =
+JSON.parse(localStorage.getItem("leaderboard")) || [];
 
-<div class="row">
-<span>${medal} ${player.name}</span>
-<span>${player.points} ⭐</span>
+const list =
+document.getElementById("leaderboardList");
+
+list.innerHTML = "";
+
+leaderboard.forEach(player=>{
+
+list.innerHTML += `
+
+<div class="playerRow">
+<span>${player.name}</span>
+<span>${player.score} pts</span>
 </div>
 
 `;
