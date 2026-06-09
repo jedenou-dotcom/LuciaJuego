@@ -15,13 +15,13 @@
 }
 
 body{
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg,#f8ffff,#dffcff,#eefcff);
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#f8ffff,#e9fdff,#dffcff);
     overflow:hidden;
     color:#3b4a5a;
 }
 
-/* FONDOS DECORATIVOS */
+/* FONDOS */
 
 .circle{
     position:absolute;
@@ -31,26 +31,26 @@ body{
 }
 
 .circle1{
-    width:300px;
-    height:300px;
-    background:#b8f5ff;
-    top:-100px;
-    left:-100px;
+    width:350px;
+    height:350px;
+    background:#c8f8ff;
+    top:-120px;
+    left:-120px;
 }
 
 .circle2{
-    width:250px;
-    height:250px;
+    width:280px;
+    height:280px;
     background:#dffcff;
-    bottom:-80px;
-    right:-80px;
+    bottom:-100px;
+    right:-100px;
 }
 
 .circle3{
-    width:180px;
-    height:180px;
-    background:#c9f7ff;
-    top:50%;
+    width:200px;
+    height:200px;
+    background:#bff6ff;
+    top:55%;
     left:70%;
 }
 
@@ -59,8 +59,8 @@ body{
 .star{
     position:absolute;
     color:white;
-    font-size:25px;
-    animation: float 3s infinite ease-in-out;
+    font-size:28px;
+    animation:float 3s infinite ease-in-out;
 }
 
 .star1{
@@ -69,8 +69,8 @@ body{
 }
 
 .star2{
-    top:20%;
-    right:18%;
+    top:18%;
+    right:20%;
 }
 
 .star3{
@@ -94,51 +94,95 @@ body{
     align-items:center;
 }
 
+/* MENU VISUAL */
+
 .menuBox{
-    width:750px;
-    background:rgba(255,255,255,0.8);
-    backdrop-filter:blur(12px);
-    border-radius:35px;
-    padding:45px;
+    width:760px;
+    background:rgba(255,255,255,0.75);
+    backdrop-filter:blur(18px);
+    border-radius:40px;
+    padding:50px;
     text-align:center;
-    box-shadow:0px 10px 40px rgba(0,0,0,0.08);
-    border:2px solid #dffcff;
+    position:relative;
+    overflow:hidden;
+    border:3px solid #dffcff;
+    box-shadow:
+    0px 10px 40px rgba(0,0,0,0.08),
+    0px 0px 30px rgba(140,240,255,0.5);
 }
 
-.logo{
-    font-size:90px;
-    margin-bottom:15px;
-    animation: float 4s infinite ease-in-out;
+/* DECORACION */
+
+.menuDecoration{
+    position:absolute;
+    width:250px;
+    height:250px;
+    background:#c8f8ff;
+    border-radius:50%;
+    top:-100px;
+    right:-80px;
+    opacity:0.6;
 }
+
+/* ROBOT */
+
+.robotFace{
+    width:140px;
+    height:140px;
+    background:#dffcff;
+    border-radius:35px;
+    margin:auto;
+    margin-bottom:25px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    box-shadow:0px 8px 20px rgba(0,0,0,0.05);
+    animation:float 3s infinite ease-in-out;
+}
+
+.eye{
+    width:22px;
+    height:22px;
+    background:#69dceb;
+    border-radius:50%;
+    box-shadow:0px 0px 15px #69dceb;
+}
+
+/* TITULO */
 
 .menuBox h1{
-    font-size:60px;
-    color:#64d8eb;
+    font-size:65px;
+    color:#69dceb;
+    margin-bottom:15px;
 }
 
 .menuBox p{
-    margin-top:15px;
-    color:#7b8ca0;
     font-size:22px;
+    color:#6f8396;
+    margin-bottom:20px;
 }
+
+/* BOTONES */
 
 .menuBtn{
     width:100%;
-    padding:18px;
-    margin-top:20px;
+    padding:20px;
+    margin-top:18px;
     border:none;
-    border-radius:18px;
-    background:#b8f5ff;
-    color:#3b4a5a;
-    font-size:20px;
+    border-radius:20px;
+    background:linear-gradient(135deg,#c8f8ff,#e9fdff);
+    color:#4f6275;
+    font-size:21px;
     cursor:pointer;
     transition:0.3s;
     font-weight:bold;
+    box-shadow:0px 5px 15px rgba(0,0,0,0.05);
 }
 
 .menuBtn:hover{
-    transform:scale(1.03);
-    background:#9befff;
+    transform:translateY(-3px);
+    background:linear-gradient(135deg,#b6f4ff,#ddfbff);
 }
 
 /* PANTALLA DEL JUEGO */
@@ -237,22 +281,27 @@ body{
     background:#ffd3d3 !important;
 }
 
-#continueBtn{
+/* BOTONES */
+
+#continueBtn,
+#menuBtn{
     width:100%;
     padding:18px;
-    margin-top:25px;
+    margin-top:18px;
     border:none;
     border-radius:18px;
     background:#b8f5ff;
     color:#3b4a5a;
     font-size:20px;
     cursor:pointer;
-    display:none;
     font-weight:bold;
+    transition:0.3s;
 }
 
-#continueBtn:hover{
+#continueBtn:hover,
+#menuBtn:hover{
     background:#9befff;
+    transform:scale(1.02);
 }
 
 /* FINAL */
@@ -288,7 +337,7 @@ body{
 .character{
     font-size:80px;
     margin-bottom:20px;
-    animation: float 3s infinite ease-in-out;
+    animation:float 3s infinite ease-in-out;
 }
 
 </style>
@@ -312,7 +361,14 @@ body{
 
 <div class="menuBox">
 
-<div class="logo">🤖</div>
+<div class="menuDecoration"></div>
+
+<div class="robotFace">
+
+<div class="eye"></div>
+<div class="eye"></div>
+
+</div>
 
 <h1>MISIÓN IA</h1>
 
@@ -364,6 +420,10 @@ Aprende sobre patrones de crianza jugando ✨
 Continuar →
 </button>
 
+<button id="menuBtn" onclick="goToMenu()">
+🏠 Volver al menú
+</button>
+
 </div>
 
 </div>
@@ -388,6 +448,10 @@ Terminaste el reto educativo 😎
 
 <button class="menuBtn" onclick="restartGame()">
 🔄 Jugar otra vez
+</button>
+
+<button class="menuBtn" onclick="goToMenu()">
+🏠 Menú principal
 </button>
 
 </div>
@@ -461,9 +525,11 @@ function startGame(){
 
 clickSound.play();
 
-document.getElementById("mainMenu").style.display = "none";
+document.getElementById("mainMenu").style.display =
+"none";
 
-document.getElementById("quizScreen").style.display = "flex";
+document.getElementById("quizScreen").style.display =
+"flex";
 
 loadQuestion();
 
@@ -479,7 +545,8 @@ function loadQuestion(){
 
 const q = questions[current];
 
-document.getElementById("question").innerHTML = q.question;
+document.getElementById("question").innerHTML =
+q.question;
 
 document.getElementById("currentQuestion").innerHTML =
 current + 1;
@@ -586,6 +653,29 @@ document.getElementById("quizScreen").style.display =
 "flex";
 
 loadQuestion();
+
+}
+
+function goToMenu(){
+
+clickSound.play();
+
+document.getElementById("quizScreen").style.display =
+"none";
+
+document.getElementById("finalScreen").style.display =
+"none";
+
+document.getElementById("mainMenu").style.display =
+"flex";
+
+current = 0;
+points = 0;
+
+document.getElementById("points").innerHTML = points;
+
+document.getElementById("progress").style.width =
+"0%";
 
 }
 
