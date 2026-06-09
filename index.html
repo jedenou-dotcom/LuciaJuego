@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,11 +14,39 @@ padding:0;
 box-sizing:border-box;
 }
 
+/* 📱 SOLO CELULAR */
+
+@media(min-width:768px){
+
+body{
+display:none;
+}
+
+html{
+background:black;
+}
+
+html::before{
+content:"📱 Este juego es solo para celulares";
+color:white;
+font-size:40px;
+font-family:Arial;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+width:80%;
+}
+
+}
+
 body{
 font-family:Arial,sans-serif;
 background:linear-gradient(135deg,#f8ffff,#e9fdff,#dffcff);
 overflow-x:hidden;
 color:#3b4a5a;
+min-height:100vh;
 }
 
 /* FONDOS */
@@ -85,7 +112,7 @@ left:25%;
 100%{transform:translateY(0px);}
 }
 
-/* MENU */
+/* PANTALLAS */
 
 #mainMenu,
 #quizScreen,
@@ -111,11 +138,17 @@ max-width:760px;
 background:rgba(255,255,255,0.85);
 backdrop-filter:blur(15px);
 border-radius:35px;
-padding:40px;
+padding:30px;
 box-shadow:0px 10px 40px rgba(0,0,0,0.08);
 }
 
 /* MENU */
+
+.menuBox{
+position:relative;
+overflow:hidden;
+text-align:center;
+}
 
 .menuDecoration{
 position:absolute;
@@ -128,12 +161,6 @@ right:-80px;
 opacity:0.6;
 }
 
-.menuBox{
-position:relative;
-overflow:hidden;
-text-align:center;
-}
-
 .robotFace{
 width:140px;
 height:140px;
@@ -144,26 +171,17 @@ margin-bottom:25px;
 display:flex;
 justify-content:center;
 align-items:center;
-gap:20px;
 animation:float 3s infinite ease-in-out;
 }
 
-.eye{
-width:22px;
-height:22px;
-background:#69dceb;
-border-radius:50%;
-box-shadow:0px 0px 15px #69dceb;
-}
-
 .menuBox h1{
-font-size:60px;
+font-size:50px;
 color:#69dceb;
 margin-bottom:10px;
 }
 
 .menuBox p{
-font-size:22px;
+font-size:20px;
 color:#6f8396;
 margin-bottom:20px;
 }
@@ -179,7 +197,7 @@ padding:18px;
 margin-top:15px;
 border:none;
 border-radius:18px;
-font-size:19px;
+font-size:18px;
 cursor:pointer;
 transition:0.3s;
 font-weight:bold;
@@ -191,8 +209,7 @@ color:#4f6275;
 }
 
 .menuBtn:hover{
-transform:translateY(-3px);
-background:linear-gradient(135deg,#b6f4ff,#ddfbff);
+transform:scale(1.02);
 }
 
 .answerBtn{
@@ -203,71 +220,6 @@ box-shadow:0px 4px 10px rgba(0,0,0,0.04);
 
 .answerBtn:hover{
 background:#f2fcff;
-transform:translateY(-2px);
-}
-
-#continueBtn,
-#menuBtn{
-background:#b8f5ff;
-color:#3b4a5a;
-}
-
-#continueBtn:hover,
-#menuBtn:hover{
-background:#9befff;
-transform:scale(1.02);
-}
-
-/* TOP */
-
-#topBar{
-display:flex;
-justify-content:space-between;
-gap:10px;
-flex-wrap:wrap;
-margin-bottom:20px;
-}
-
-.infoBox{
-background:#f4fdff;
-padding:14px 22px;
-border-radius:18px;
-font-size:18px;
-color:#5d7186;
-box-shadow:0px 4px 10px rgba(0,0,0,0.03);
-}
-
-/* BARRA */
-
-#progressBar{
-width:100%;
-height:18px;
-background:#ecf9fc;
-border-radius:20px;
-overflow:hidden;
-margin-bottom:30px;
-}
-
-#progress{
-width:0%;
-height:100%;
-background:linear-gradient(90deg,#9befff,#d9fbff);
-transition:0.4s;
-}
-
-/* QUESTION */
-
-#questionBox{
-background:#f8feff;
-border-radius:25px;
-padding:30px;
-}
-
-#question{
-font-size:30px;
-text-align:center;
-color:#4f6275;
-margin-bottom:30px;
 }
 
 .correct{
@@ -278,13 +230,60 @@ background:#b9ffd2 !important;
 background:#ffd3d3 !important;
 }
 
-.finalBox{
-text-align:center;
+/* TOP */
+
+#topBar{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:20px;
+justify-content:center;
 }
 
-.finalBox h1{
-font-size:55px;
-color:#64d8eb;
+.infoBox{
+background:#f4fdff;
+padding:12px 18px;
+border-radius:18px;
+font-size:17px;
+color:#5d7186;
+}
+
+/* BARRA */
+
+#progressBar{
+width:100%;
+height:18px;
+background:#ecf9fc;
+border-radius:20px;
+overflow:hidden;
+margin-bottom:25px;
+}
+
+#progress{
+width:0%;
+height:100%;
+background:linear-gradient(90deg,#9befff,#d9fbff);
+transition:0.4s;
+}
+
+/* PREGUNTAS */
+
+#questionBox{
+background:#f8feff;
+border-radius:25px;
+padding:25px;
+}
+
+#question{
+font-size:25px;
+text-align:center;
+margin-bottom:25px;
+}
+
+/* FINAL */
+
+.finalBox{
+text-align:center;
 }
 
 .character{
@@ -299,20 +298,7 @@ margin-top:20px;
 
 #leaderboard p{
 margin-top:10px;
-font-size:20px;
-color:#5d7186;
-}
-
-@media(max-width:700px){
-
-.menuBox h1{
-font-size:40px;
-}
-
-#question{
-font-size:24px;
-}
-
+font-size:18px;
 }
 
 </style>
@@ -336,7 +322,7 @@ font-size:24px;
 
 <div class="menuDecoration"></div>
 
-<div class="robotFace" id="robot">
+<div class="robotFace">
 <div id="robotEmoji" style="font-size:60px;">
 🤖
 </div>
@@ -345,7 +331,7 @@ font-size:24px;
 <h1>MISIÓN IA</h1>
 
 <p>
-Aprende sobre patrones de crianza jugando ✨
+Aprende jugando sobre patrones de crianza ✨
 </p>
 
 <input
@@ -353,11 +339,7 @@ id="playerName"
 type="text"
 placeholder="👤 Escribe tu nombre"
 class="menuBtn"
-style="
-background:white;
-text-align:center;
-cursor:text;
-"
+style="background:white;text-align:center;"
 />
 
 <button class="menuBtn" onclick="startGame()">
@@ -381,7 +363,7 @@ cursor:text;
 <div id="topBar">
 
 <div class="infoBox">
-⭐ Puntos: <span id="points">0</span>
+⭐ <span id="points">0</span>
 </div>
 
 <div class="infoBox">
@@ -389,15 +371,11 @@ cursor:text;
 </div>
 
 <div class="infoBox">
-⏳ <span id="timer">10</span>s
+⏳ <span id="timer">10</span>
 </div>
 
 <div class="infoBox">
-🔥 Combo: <span id="combo">0</span>
-</div>
-
-<div class="infoBox">
-📚 <span id="currentQuestion">1</span>/<span id="totalQuestions">5</span>
+🔥 <span id="combo">0</span>
 </div>
 
 </div>
@@ -417,7 +395,7 @@ Continuar →
 </button>
 
 <button id="menuBtn" onclick="goToMenu()">
-🏠 Volver al menú
+🏠 Menú
 </button>
 
 </div>
@@ -483,35 +461,31 @@ const correctSound = new Audio("https://assets.mixkit.co/active_storage/sfx/2000
 
 const wrongSound = new Audio("https://assets.mixkit.co/active_storage/sfx/2955/2955-preview.mp3");
 
-const clickSound = new Audio("https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3");
-
 let current = 0;
 let points = 0;
 let lives = 3;
-let playerName = "";
-
+let combo = 0;
 let timer = 10;
 let timerInterval;
-
-let combo = 0;
+let playerName = "";
 
 const questions = [
 
 {
-question:"¿Qué caracteriza al patrón de crianza democrático?",
+question:"¿Qué caracteriza al patrón democrático?",
 answers:[
-{text:"La comunicación y el respeto",correct:true},
-{text:"El castigo excesivo",correct:false},
-{text:"La falta de reglas",correct:false}
+{text:"Castigos severos",correct:false},
+{text:"Comunicación y respeto",correct:true},
+{text:"Falta de límites",correct:false}
 ]
 },
 
 {
-question:"¿Qué ocurre en una crianza permisiva?",
+question:"¿Qué pasa en la crianza permisiva?",
 answers:[
-{text:"Hay pocas reglas y límites",correct:true},
-{text:"Hay castigos estrictos",correct:false},
-{text:"Existe mucha disciplina",correct:false}
+{text:"Hay pocas reglas",correct:true},
+{text:"Mucho castigo",correct:false},
+{text:"Disciplina extrema",correct:false}
 ]
 },
 
@@ -527,33 +501,30 @@ answers:[
 {
 question:"¿Qué debe existir entre padres e hijos?",
 answers:[
-{text:"Confianza y comunicación",correct:true},
+{text:"Confianza",correct:true},
 {text:"Desinterés",correct:false},
 {text:"Miedo",correct:false}
 ]
 },
 
 {
-question:"¿Qué crianza suele ser muy estricta?",
+question:"¿Qué crianza suele ser estricta?",
 answers:[
 {text:"Autoritaria",correct:true},
-{text:"Democrática",correct:false},
-{text:"Permisiva",correct:false}
+{text:"Permisiva",correct:false},
+{text:"Democrática",correct:false}
 ]
 }
 
 ];
 
-/* 🔥 PREGUNTAS ALEATORIAS */
+/* PREGUNTAS ALEATORIAS */
 
 questions.sort(() => Math.random() - 0.5);
 
-document.getElementById("totalQuestions").innerHTML =
-questions.length;
-
 function showInstructions(){
 
-alert("Responde correctamente las preguntas para ganar puntos ⭐");
+alert("Responde correctamente para ganar puntos ⭐");
 
 }
 
@@ -569,8 +540,6 @@ alert("Escribe tu nombre");
 return;
 
 }
-
-clickSound.play();
 
 document.getElementById("mainMenu").style.display =
 "none";
@@ -645,16 +614,11 @@ const q = questions[current];
 document.getElementById("robotEmoji").innerHTML =
 "🤖";
 
-/* 🔥 RESPUESTAS ALEATORIAS */
-
 const shuffledAnswers =
 [...q.answers].sort(() => Math.random() - 0.5);
 
 document.getElementById("question").innerHTML =
 q.question;
-
-document.getElementById("currentQuestion").innerHTML =
-current + 1;
 
 document.getElementById("progress").style.width =
 ((current)/questions.length)*100 + "%";
@@ -687,7 +651,7 @@ startTimer();
 
 function selectAnswer(button,correct){
 
-clickSound.play();
+clearInterval(timerInterval);
 
 const buttons =
 document.querySelectorAll(".answerBtn");
@@ -698,16 +662,14 @@ btn.disabled = true;
 
 if(correct){
 
-clearInterval(timerInterval);
-
 button.classList.add("correct");
 
 points += 10;
 
 combo++;
 
-document.getElementById("combo").innerHTML =
-combo;
+document.getElementById("robotEmoji").innerHTML =
+"🥳";
 
 if(combo >= 3){
 
@@ -717,838 +679,22 @@ points += 5;
 
 correctSound.play();
 
-document.getElementById("robotEmoji").innerHTML =
-"🥳";
-
 }else{
-
-clearInterval(timerInterval);
 
 button.classList.add("wrong");
 
 combo = 0;
 
-document.getElementById("combo").innerHTML =
-combo;
-
 lives--;
-
-document.getElementById("lives").innerHTML =
-lives;
-
-wrongSound.play();
 
 document.getElementById("robotEmoji").innerHTML =
 "😡";
 
-if(lives <= 0){
-
-setTimeout(()=>{
-
-gameOver();
-
-},800);
-
-}
-
-}
-
-document.getElementById("points").innerHTML =
-points;
-
-document.getElementById("continueBtn").style.display =
-"block";
-
-}
-
-document.getElementById("continueBtn").onclick =
-()=>{
-
-current++;
-
-if(current < questions.length){
-
-loadQuestion();
-
-}else{
-
-finishGame();
-
-}
-
-};
-
-async function saveScore(){
-
-await addDoc(
-collection(db,"scores"),
-{
-name: playerName,
-points: points
-}
-);
-
-}
-
-async function loadLeaderboard(){
-
-const q = query(
-collection(db,"scores"),
-orderBy("points","desc"),
-limit(10)
-);
-
-const querySnapshot =
-await getDocs(q);
-
-let html =
-"<h2>🏆 TOP 10</h2>";
-
-let pos = 1;
-
-querySnapshot.forEach((doc)=>{
-
-const data = doc.data();
-
-html += `
-<p>
-${pos}. ${data.name} - ⭐ ${data.points}
-</p>
-`;
-
-pos++;
-
-});
-
-document.getElementById(
-"leaderboard"
-).innerHTML = html;
-
-}
-
-function gameOver(){
-
-document.getElementById("robotEmoji").innerHTML =
-"💀";
-
-document.getElementById("quizScreen").style.display =
-"none";
-
-document.getElementById("finalScreen").style.display =
-"flex";
-
-document.getElementById("finalPoints").innerHTML =
-`
-💀 GAME OVER
-<br><br>
-👤 ${playerName}
-<br><br>
-⭐ ${points} puntos
-`;
-
-loadLeaderboard();
-
-}
-
-async function finishGame(){
-
-await saveScore();
-
-document.getElementById("robotEmoji").innerHTML =
-"🏆";
-
-document.getElementById("quizScreen").style.display =
-"none";
-
-document.getElementById("finalScreen").style.display =
-"flex";
-
-let rank = "🥉 Aprendiz";
-
-if(points >= 30)
-rank = "🥈 Experto";
-
-if(points >= 50)
-rank = "🥇 Maestro IA";
-
-document.getElementById("finalPoints").innerHTML =
-`
-👤 ${playerName}
-<br><br>
-⭐ ${points} puntos
-<br><br>
-${rank}
-`;
-
-loadLeaderboard();
-
-}
-
-window.restartGame = function(){
-
-current = 0;
-points = 0;
-lives = 3;
-combo = 0;
-
-document.getElementById("points").innerHTML =
-points;
-
-document.getElementById("lives").innerHTML =
-lives;
-
-document.getElementById("combo").innerHTML =
-combo;
-
-document.getElementById("finalScreen").style.display =
-"none";
-
-document.getElementById("quizScreen").style.display =
-"flex";
-
-loadQuestion();
-
-}
-
-window.goToMenu = function(){
-
-clickSound.play();
-
-document.getElementById("quizScreen").style.display =
-"none";
-
-document.getElementById("finalScreen").style.display =
-"none";
-
-document.getElementById("mainMenu").style.display =
-"flex";
-
-current = 0;
-points = 0;
-lives = 3;
-combo = 0;
-
-document.getElementById("points").innerHTML =
-points;
-
-document.getElementById("lives").innerHTML =
-lives;
-
-document.getElementById("combo").innerHTML =
-combo;
-
-document.getElementById("progress").style.width =
-"0%";
-
-}
-
-</script>
-
-</body>
-</html>
-```
-top:-120px;
-left:-120px;
-}
-
-.circle2{
-width:280px;
-height:280px;
-background:#dffcff;
-bottom:-100px;
-right:-100px;
-}
-
-.circle3{
-width:200px;
-height:200px;
-background:#bff6ff;
-top:55%;
-left:70%;
-}
-
-/* ESTRELLAS */
-
-.star{
-position:absolute;
-color:white;
-font-size:28px;
-animation:float 3s infinite ease-in-out;
-}
-
-.star1{
-top:10%;
-left:15%;
-}
-
-.star2{
-top:18%;
-right:20%;
-}
-
-.star3{
-bottom:15%;
-left:25%;
-}
-
-@keyframes float{
-0%{transform:translateY(0px);}
-50%{transform:translateY(-10px);}
-100%{transform:translateY(0px);}
-}
-
-/* MENU */
-
-#mainMenu,
-#quizScreen,
-#finalScreen{
-width:100%;
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:20px;
-}
-
-#quizScreen,
-#finalScreen{
-display:none;
-}
-
-.menuBox,
-#gameContainer,
-.finalBox{
-width:100%;
-max-width:760px;
-background:rgba(255,255,255,0.85);
-backdrop-filter:blur(15px);
-border-radius:35px;
-padding:40px;
-box-shadow:0px 10px 40px rgba(0,0,0,0.08);
-}
-
-/* MENU */
-
-.menuDecoration{
-position:absolute;
-width:250px;
-height:250px;
-background:#c8f8ff;
-border-radius:50%;
-top:-100px;
-right:-80px;
-opacity:0.6;
-}
-
-.menuBox{
-position:relative;
-overflow:hidden;
-text-align:center;
-}
-
-.robotFace{
-width:140px;
-height:140px;
-background:#dffcff;
-border-radius:35px;
-margin:auto;
-margin-bottom:25px;
-display:flex;
-justify-content:center;
-align-items:center;
-gap:20px;
-animation:float 3s infinite ease-in-out;
-}
-
-.eye{
-width:22px;
-height:22px;
-background:#69dceb;
-border-radius:50%;
-box-shadow:0px 0px 15px #69dceb;
-}
-
-.menuBox h1{
-font-size:60px;
-color:#69dceb;
-margin-bottom:10px;
-}
-
-.menuBox p{
-font-size:22px;
-color:#6f8396;
-margin-bottom:20px;
-}
-
-/* BOTONES */
-
-.menuBtn,
-.answerBtn,
-#continueBtn,
-#menuBtn{
-width:100%;
-padding:18px;
-margin-top:15px;
-border:none;
-border-radius:18px;
-font-size:19px;
-cursor:pointer;
-transition:0.3s;
-font-weight:bold;
-}
-
-.menuBtn{
-background:linear-gradient(135deg,#c8f8ff,#e9fdff);
-color:#4f6275;
-}
-
-.menuBtn:hover{
-transform:translateY(-3px);
-background:linear-gradient(135deg,#b6f4ff,#ddfbff);
-}
-
-.answerBtn{
-background:white;
-color:#4f6275;
-box-shadow:0px 4px 10px rgba(0,0,0,0.04);
-}
-
-.answerBtn:hover{
-background:#f2fcff;
-transform:translateY(-2px);
-}
-
-#continueBtn,
-#menuBtn{
-background:#b8f5ff;
-color:#3b4a5a;
-}
-
-#continueBtn:hover,
-#menuBtn:hover{
-background:#9befff;
-transform:scale(1.02);
-}
-
-/* TOP */
-
-#topBar{
-display:flex;
-justify-content:space-between;
-gap:10px;
-flex-wrap:wrap;
-margin-bottom:20px;
-}
-
-.infoBox{
-background:#f4fdff;
-padding:14px 22px;
-border-radius:18px;
-font-size:18px;
-color:#5d7186;
-box-shadow:0px 4px 10px rgba(0,0,0,0.03);
-}
-
-/* BARRA */
-
-#progressBar{
-width:100%;
-height:18px;
-background:#ecf9fc;
-border-radius:20px;
-overflow:hidden;
-margin-bottom:30px;
-}
-
-#progress{
-width:0%;
-height:100%;
-background:linear-gradient(90deg,#9befff,#d9fbff);
-transition:0.4s;
-}
-
-/* QUESTION */
-
-#questionBox{
-background:#f8feff;
-border-radius:25px;
-padding:30px;
-}
-
-#question{
-font-size:30px;
-text-align:center;
-color:#4f6275;
-margin-bottom:30px;
-}
-
-.correct{
-background:#b9ffd2 !important;
-}
-
-.wrong{
-background:#ffd3d3 !important;
-}
-
-.finalBox{
-text-align:center;
-}
-
-.finalBox h1{
-font-size:55px;
-color:#64d8eb;
-}
-
-.character{
-font-size:80px;
-margin-bottom:20px;
-animation:float 3s infinite ease-in-out;
-}
-
-#leaderboard{
-margin-top:20px;
-}
-
-#leaderboard p{
-margin-top:10px;
-font-size:20px;
-color:#5d7186;
-}
-
-@media(max-width:700px){
-
-.menuBox h1{
-font-size:40px;
-}
-
-#question{
-font-size:24px;
-}
-
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="circle circle1"></div>
-<div class="circle circle2"></div>
-<div class="circle circle3"></div>
-
-<div class="star star1">✦</div>
-<div class="star star2">✦</div>
-<div class="star star3">✦</div>
-
-<!-- MENU -->
-
-<div id="mainMenu">
-
-<div class="menuBox">
-
-<div class="menuDecoration"></div>
-
-<div class="robotFace">
-<div class="eye"></div>
-<div class="eye"></div>
-</div>
-
-<h1>MISIÓN IA</h1>
-
-<p>
-Aprende sobre patrones de crianza jugando ✨
-</p>
-
-<input
-id="playerName"
-type="text"
-placeholder="👤 Escribe tu nombre"
-class="menuBtn"
-style="
-background:white;
-text-align:center;
-cursor:text;
-"
-/>
-
-<button class="menuBtn" onclick="startGame()">
-▶️ Jugar
-</button>
-
-<button class="menuBtn" onclick="showInstructions()">
-📖 Instrucciones
-</button>
-
-</div>
-
-</div>
-
-<!-- JUEGO -->
-
-<div id="quizScreen">
-
-<div id="gameContainer">
-
-<div id="topBar">
-
-<div class="infoBox">
-⭐ Puntos: <span id="points">0</span>
-</div>
-
-<div class="infoBox">
-❤️ <span id="lives">3</span>
-</div>
-
-<div class="infoBox">
-📚 <span id="currentQuestion">1</span>/<span id="totalQuestions">5</span>
-</div>
-
-</div>
-
-<div id="progressBar">
-<div id="progress"></div>
-</div>
-
-<div id="questionBox">
-
-<h2 id="question"></h2>
-
-<div id="answers"></div>
-
-<button id="continueBtn">
-Continuar →
-</button>
-
-<button id="menuBtn" onclick="goToMenu()">
-🏠 Volver al menú
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- FINAL -->
-
-<div id="finalScreen">
-
-<div class="finalBox">
-
-<div class="character">🏆</div>
-
-<h1>¡COMPLETADO!</h1>
-
-<h2 id="finalPoints"></h2>
-
-<div id="leaderboard"></div>
-
-<button class="menuBtn" onclick="restartGame()">
-🔄 Jugar otra vez
-</button>
-
-<button class="menuBtn" onclick="goToMenu()">
-🏠 Menú principal
-</button>
-
-</div>
-
-</div>
-
-<script type="module">
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-import {
-getFirestore,
-collection,
-addDoc,
-getDocs,
-query,
-orderBy,
-limit
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-const firebaseConfig = {
-apiKey: "AIzaSyCxdfOV3wv26INwjB9hXZDuIL_Q-SEv0UI",
-authDomain: "juego-lucy.firebaseapp.com",
-projectId: "juego-lucy",
-storageBucket: "juego-lucy.firebasestorage.app",
-messagingSenderId: "634003549609",
-appId: "1:634003549609:web:b000c14d0dd620e06e28b8",
-measurementId: "G-22PXLHBPDC"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-const correctSound = new Audio("https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3");
-
-const wrongSound = new Audio("https://assets.mixkit.co/active_storage/sfx/2955/2955-preview.mp3");
-
-const clickSound = new Audio("https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3");
-
-let current = 0;
-let points = 0;
-let lives = 3;
-let playerName = "";
-
-const questions = [
-
-{
-question:"¿Qué caracteriza al patrón de crianza democrático?",
-answers:[
-{text:"La comunicación y el respeto",correct:true},
-{text:"El castigo excesivo",correct:false},
-{text:"La falta de reglas",correct:false}
-]
-},
-
-{
-question:"¿Qué ocurre en una crianza permisiva?",
-answers:[
-{text:"Hay pocas reglas y límites",correct:true},
-{text:"Hay castigos estrictos",correct:false},
-{text:"Existe mucha disciplina",correct:false}
-]
-},
-
-{
-question:"¿Qué mejora una buena crianza?",
-answers:[
-{text:"La autoestima",correct:true},
-{text:"La violencia",correct:false},
-{text:"El miedo",correct:false}
-]
-},
-
-{
-question:"¿Qué debe existir entre padres e hijos?",
-answers:[
-{text:"Confianza y comunicación",correct:true},
-{text:"Desinterés",correct:false},
-{text:"Miedo",correct:false}
-]
-},
-
-{
-question:"¿Qué crianza suele ser muy estricta?",
-answers:[
-{text:"Autoritaria",correct:true},
-{text:"Democrática",correct:false},
-{text:"Permisiva",correct:false}
-]
-}
-
-];
-
-document.getElementById("totalQuestions").innerHTML =
-questions.length;
-
-function showInstructions(){
-
-alert("Responde correctamente las preguntas para ganar puntos ⭐");
-
-}
-
-window.startGame = function(){
-
-playerName =
-document.getElementById("playerName").value.trim();
-
-if(playerName === ""){
-
-alert("Escribe tu nombre");
-
-return;
-
-}
-
-clickSound.play();
-
-document.getElementById("mainMenu").style.display =
-"none";
-
-document.getElementById("quizScreen").style.display =
-"flex";
-
-loadQuestion();
-
-}
-
-function loadQuestion(){
-
-const q = questions[current];
-
-document.getElementById("question").innerHTML =
-q.question;
-
-document.getElementById("currentQuestion").innerHTML =
-current + 1;
-
-document.getElementById("progress").style.width =
-((current)/questions.length)*100 + "%";
-
-const answersDiv = document.getElementById("answers");
-
-answersDiv.innerHTML = "";
-
-document.getElementById("continueBtn").style.display =
-"none";
-
-q.answers.forEach(answer=>{
-
-const btn = document.createElement("button");
-
-btn.classList.add("answerBtn");
-
-btn.innerHTML = answer.text;
-
-btn.onclick = ()=>selectAnswer(btn,answer.correct);
-
-answersDiv.appendChild(btn);
-
-});
-
-}
-
-function selectAnswer(button,correct){
-
-clickSound.play();
-
-const buttons =
-document.querySelectorAll(".answerBtn");
-
-buttons.forEach(btn=>{
-btn.disabled = true;
-});
-
-if(correct){
-
-button.classList.add("correct");
-
-points += 10;
-
-correctSound.play();
-
-}else{
-
-button.classList.add("wrong");
-
-lives--;
-
-document.getElementById("lives").innerHTML =
-lives;
-
 wrongSound.play();
 
 if(lives <= 0){
 
-setTimeout(()=>{
-
 gameOver();
-
-},800);
 
 }
 
@@ -1556,6 +702,12 @@ gameOver();
 
 document.getElementById("points").innerHTML =
 points;
+
+document.getElementById("combo").innerHTML =
+combo;
+
+document.getElementById("lives").innerHTML =
+lives;
 
 document.getElementById("continueBtn").style.display =
 "block";
@@ -1602,8 +754,7 @@ limit(10)
 const querySnapshot =
 await getDocs(q);
 
-let html =
-"<h2>🏆 TOP 10</h2>";
+let html = "<h2>🏆 TOP 10</h2>";
 
 let pos = 1;
 
@@ -1621,9 +772,8 @@ pos++;
 
 });
 
-document.getElementById(
-"leaderboard"
-).innerHTML = html;
+document.getElementById("leaderboard").innerHTML =
+html;
 
 }
 
@@ -1638,8 +788,6 @@ document.getElementById("finalScreen").style.display =
 document.getElementById("finalPoints").innerHTML =
 `
 💀 GAME OVER
-<br><br>
-👤 ${playerName}
 <br><br>
 ⭐ ${points} puntos
 `;
@@ -1658,21 +806,11 @@ document.getElementById("quizScreen").style.display =
 document.getElementById("finalScreen").style.display =
 "flex";
 
-let rank = "🥉 Aprendiz";
-
-if(points >= 30)
-rank = "🥈 Experto";
-
-if(points >= 50)
-rank = "🥇 Maestro IA";
-
 document.getElementById("finalPoints").innerHTML =
 `
 👤 ${playerName}
 <br><br>
 ⭐ ${points} puntos
-<br><br>
-${rank}
 `;
 
 loadLeaderboard();
@@ -1684,12 +822,7 @@ window.restartGame = function(){
 current = 0;
 points = 0;
 lives = 3;
-
-document.getElementById("points").innerHTML =
-points;
-
-document.getElementById("lives").innerHTML =
-lives;
+combo = 0;
 
 document.getElementById("finalScreen").style.display =
 "none";
@@ -1697,13 +830,20 @@ document.getElementById("finalScreen").style.display =
 document.getElementById("quizScreen").style.display =
 "flex";
 
+document.getElementById("points").innerHTML =
+points;
+
+document.getElementById("lives").innerHTML =
+lives;
+
+document.getElementById("combo").innerHTML =
+combo;
+
 loadQuestion();
 
 }
 
 window.goToMenu = function(){
-
-clickSound.play();
 
 document.getElementById("quizScreen").style.display =
 "none";
@@ -1713,19 +853,6 @@ document.getElementById("finalScreen").style.display =
 
 document.getElementById("mainMenu").style.display =
 "flex";
-
-current = 0;
-points = 0;
-lives = 3;
-
-document.getElementById("points").innerHTML =
-points;
-
-document.getElementById("lives").innerHTML =
-lives;
-
-document.getElementById("progress").style.width =
-"0%";
 
 }
 
