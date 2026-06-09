@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MISIÓN IA - Patrones de Crianza</title>
+<title>MISIÓN IA</title>
 
 <style>
 
@@ -18,11 +18,88 @@ body{
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg,#020617,#0f172a,#111827);
     color:white;
+    overflow:hidden;
+}
+
+/* FONDO */
+
+.backgroundGlow{
+    position:absolute;
+    width:300px;
+    height:300px;
+    background:cyan;
+    filter:blur(150px);
+    opacity:0.15;
+    z-index:-1;
+}
+
+.glow1{
+    top:-100px;
+    left:-100px;
+}
+
+.glow2{
+    bottom:-100px;
+    right:-100px;
+}
+
+/* MENU PRINCIPAL */
+
+#mainMenu{
+    width:100%;
+    height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
+}
+
+.menuBox{
+    width:700px;
+    background:rgba(15,23,42,0.95);
+    border:2px solid cyan;
+    border-radius:30px;
+    padding:40px;
+    text-align:center;
+    box-shadow:0px 0px 40px rgba(0,255,255,0.5);
+}
+
+.menuBox h1{
+    font-size:60px;
+    color:cyan;
+}
+
+.menuBox p{
+    margin-top:20px;
+    color:#cbd5e1;
+    font-size:20px;
+}
+
+.menuBtn{
+    width:100%;
+    padding:18px;
+    margin-top:20px;
+    border:none;
+    border-radius:15px;
+    background:cyan;
+    font-size:20px;
+    cursor:pointer;
+    transition:0.3s;
+    font-weight:bold;
+}
+
+.menuBtn:hover{
+    background:#00aaff;
+    transform:scale(1.02);
+}
+
+/* PANTALLA DEL JUEGO */
+
+#quizScreen{
+    display:none;
+    width:100%;
     height:100vh;
-    overflow:hidden;
+    justify-content:center;
+    align-items:center;
 }
 
 #gameContainer{
@@ -32,20 +109,6 @@ body{
     border-radius:30px;
     padding:35px;
     box-shadow:0px 0px 40px rgba(0,255,255,0.5);
-    position:relative;
-}
-
-h1{
-    text-align:center;
-    color:cyan;
-    margin-bottom:10px;
-    font-size:40px;
-}
-
-#subtitle{
-    text-align:center;
-    color:#94a3b8;
-    margin-bottom:25px;
 }
 
 #topBar{
@@ -81,7 +144,6 @@ h1{
     background:#0f172a;
     padding:30px;
     border-radius:20px;
-    min-height:150px;
 }
 
 #question{
@@ -104,8 +166,8 @@ h1{
 }
 
 .answerBtn:hover{
-    transform:scale(1.02);
     background:#334155;
+    transform:scale(1.02);
 }
 
 .correct{
@@ -117,13 +179,12 @@ h1{
 }
 
 #continueBtn{
-    margin-top:30px;
     width:100%;
     padding:18px;
+    margin-top:25px;
     border:none;
     border-radius:15px;
     background:cyan;
-    color:black;
     font-size:20px;
     cursor:pointer;
     display:none;
@@ -134,50 +195,34 @@ h1{
     background:#00aaff;
 }
 
+/* PANTALLA FINAL */
+
 #finalScreen{
     display:none;
+    width:100%;
+    height:100vh;
+    justify-content:center;
+    align-items:center;
+}
+
+.finalBox{
+    width:700px;
+    background:rgba(15,23,42,0.95);
+    border:2px solid cyan;
+    border-radius:30px;
+    padding:40px;
     text-align:center;
+    box-shadow:0px 0px 40px rgba(0,255,255,0.5);
 }
 
-#finalScreen h2{
-    font-size:45px;
+.finalBox h1{
+    font-size:55px;
     color:cyan;
-    margin-bottom:20px;
 }
 
-#finalScreen p{
-    font-size:22px;
+.finalBox p{
     margin-top:20px;
-}
-
-#restartBtn{
-    margin-top:30px;
-    padding:18px 30px;
-    border:none;
-    border-radius:15px;
-    background:cyan;
-    font-size:20px;
-    cursor:pointer;
-}
-
-.glow{
-    position:absolute;
-    width:200px;
-    height:200px;
-    background:cyan;
-    filter:blur(120px);
-    opacity:0.15;
-    z-index:-1;
-}
-
-.glow1{
-    top:-50px;
-    left:-50px;
-}
-
-.glow2{
-    bottom:-50px;
-    right:-50px;
+    font-size:22px;
 }
 
 </style>
@@ -185,17 +230,38 @@ h1{
 
 <body>
 
-<div id="gameContainer">
+<div class="backgroundGlow glow1"></div>
+<div class="backgroundGlow glow2"></div>
 
-<div class="glow glow1"></div>
-<div class="glow glow2"></div>
+<!-- MENU -->
+
+<div id="mainMenu">
+
+<div class="menuBox">
+
+<h1>🤖 MISIÓN IA</h1>
+
+<p>
+Juego educativo sobre patrones de crianza
+</p>
+
+<button class="menuBtn" onclick="startGame()">
+▶️ JUGAR
+</button>
+
+<button class="menuBtn" onclick="showInstructions()">
+📖 INSTRUCCIONES
+</button>
+
+</div>
+
+</div>
+
+<!-- JUEGO -->
 
 <div id="quizScreen">
 
-<h1>🧠 PATRONES DE CRIANZA</h1>
-<p id="subtitle">
-Juego educativo interactivo
-</p>
+<div id="gameContainer">
 
 <div id="topBar">
 
@@ -204,7 +270,7 @@ Juego educativo interactivo
 </div>
 
 <div class="infoBox">
-📚 Pregunta <span id="currentQuestion">1</span>/<span id="totalQuestions">5</span>
+📚 <span id="currentQuestion">1</span>/<span id="totalQuestions">5</span>
 </div>
 
 </div>
@@ -227,18 +293,24 @@ Continuar →
 
 </div>
 
+</div>
+
+<!-- FINAL -->
+
 <div id="finalScreen">
 
-<h2>🏆 ¡COMPLETADO!</h2>
+<div class="finalBox">
 
-<h3 id="finalPoints"></h3>
+<h1>🏆 ¡COMPLETADO!</h1>
+
+<h2 id="finalPoints"></h2>
 
 <p>
-Has terminado el reto sobre patrones de crianza 😎
+Terminaste el desafío educativo 😎
 </p>
 
-<button id="restartBtn">
-Jugar otra vez
+<button class="menuBtn" onclick="restartGame()">
+🔄 JUGAR OTRA VEZ
 </button>
 
 </div>
@@ -247,14 +319,20 @@ Jugar otra vez
 
 <script>
 
+/* SONIDOS */
+
 const correctSound = new Audio("https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3");
 
 const wrongSound = new Audio("https://assets.mixkit.co/active_storage/sfx/2955/2955-preview.mp3");
 
 const clickSound = new Audio("https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3");
 
+/* VARIABLES */
+
 let current = 0;
 let points = 0;
+
+/* PREGUNTAS */
 
 const questions = [
 
@@ -270,18 +348,18 @@ answers:[
 {
 question:"¿Qué ocurre en una crianza permisiva?",
 answers:[
-{text:"Hay pocas reglas y límites",correct:true},
-{text:"Hay demasiados castigos",correct:false},
-{text:"Existe disciplina estricta",correct:false}
+{text:"Hay pocas reglas",correct:true},
+{text:"Hay castigos estrictos",correct:false},
+{text:"Existe mucha disciplina",correct:false}
 ]
 },
 
 {
-question:"¿Cuál es un efecto positivo de una buena crianza?",
+question:"¿Qué mejora una buena crianza?",
 answers:[
-{text:"Mayor autoestima",correct:true},
-{text:"Más violencia",correct:false},
-{text:"Miedo constante",correct:false}
+{text:"La autoestima",correct:true},
+{text:"La violencia",correct:false},
+{text:"El miedo",correct:false}
 ]
 },
 
@@ -289,13 +367,13 @@ answers:[
 question:"¿Qué debe existir entre padres e hijos?",
 answers:[
 {text:"Confianza y comunicación",correct:true},
-{text:"Miedo",correct:false},
-{text:"Desinterés",correct:false}
+{text:"Desinterés",correct:false},
+{text:"Miedo",correct:false}
 ]
 },
 
 {
-question:"¿Qué tipo de crianza suele ser muy estricta?",
+question:"¿Qué crianza suele ser muy estricta?",
 answers:[
 {text:"Autoritaria",correct:true},
 {text:"Democrática",correct:false},
@@ -305,15 +383,42 @@ answers:[
 
 ];
 
-document.getElementById("totalQuestions").innerHTML = questions.length;
+document.getElementById("totalQuestions").innerHTML =
+questions.length;
+
+/* MENU */
+
+function startGame(){
+
+clickSound.play();
+
+document.getElementById("mainMenu").style.display = "none";
+
+document.getElementById("quizScreen").style.display = "flex";
+
+loadQuestion();
+
+}
+
+function showInstructions(){
+
+alert(
+"Responde correctamente las preguntas para ganar puntos. 🎮"
+);
+
+}
+
+/* CARGAR PREGUNTA */
 
 function loadQuestion(){
 
 const q = questions[current];
 
-document.getElementById("question").innerHTML = q.question;
+document.getElementById("question").innerHTML =
+q.question;
 
-document.getElementById("currentQuestion").innerHTML = current + 1;
+document.getElementById("currentQuestion").innerHTML =
+current + 1;
 
 document.getElementById("progress").style.width =
 ((current)/questions.length)*100 + "%";
@@ -322,7 +427,8 @@ const answersDiv = document.getElementById("answers");
 
 answersDiv.innerHTML = "";
 
-document.getElementById("continueBtn").style.display = "none";
+document.getElementById("continueBtn").style.display =
+"none";
 
 q.answers.forEach(answer=>{
 
@@ -339,6 +445,8 @@ answersDiv.appendChild(btn);
 });
 
 }
+
+/* RESPUESTAS */
 
 function selectAnswer(button,correct){
 
@@ -366,11 +474,15 @@ wrongSound.play();
 
 }
 
-document.getElementById("points").innerHTML = points;
+document.getElementById("points").innerHTML =
+points;
 
-document.getElementById("continueBtn").style.display = "block";
+document.getElementById("continueBtn").style.display =
+"block";
 
 }
+
+/* CONTINUAR */
 
 document.getElementById("continueBtn").onclick = ()=>{
 
@@ -388,11 +500,15 @@ finishGame();
 
 };
 
+/* FINAL */
+
 function finishGame(){
 
-document.getElementById("quizScreen").style.display = "none";
+document.getElementById("quizScreen").style.display =
+"none";
 
-document.getElementById("finalScreen").style.display = "block";
+document.getElementById("finalScreen").style.display =
+"flex";
 
 document.getElementById("finalPoints").innerHTML =
 "⭐ Puntuación final: " + points;
@@ -401,22 +517,24 @@ document.getElementById("progress").style.width = "100%";
 
 }
 
-document.getElementById("restartBtn").onclick = ()=>{
+/* REINICIAR */
+
+function restartGame(){
 
 current = 0;
 points = 0;
 
 document.getElementById("points").innerHTML = points;
 
-document.getElementById("quizScreen").style.display = "block";
+document.getElementById("finalScreen").style.display =
+"none";
 
-document.getElementById("finalScreen").style.display = "none";
-
-loadQuestion();
-
-};
+document.getElementById("quizScreen").style.display =
+"flex";
 
 loadQuestion();
+
+}
 
 </script>
 
