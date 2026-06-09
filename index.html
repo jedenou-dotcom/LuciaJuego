@@ -15,35 +15,76 @@
 }
 
 body{
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg,#020617,#0f172a,#111827);
-    color:white;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg,#f8ffff,#dffcff,#eefcff);
     overflow:hidden;
+    color:#3b4a5a;
 }
 
-/* FONDO */
+/* FONDOS DECORATIVOS */
 
-.backgroundGlow{
+.circle{
     position:absolute;
-    width:300px;
-    height:300px;
-    background:cyan;
-    filter:blur(150px);
-    opacity:0.15;
+    border-radius:50%;
+    opacity:0.4;
     z-index:-1;
 }
 
-.glow1{
+.circle1{
+    width:300px;
+    height:300px;
+    background:#b8f5ff;
     top:-100px;
     left:-100px;
 }
 
-.glow2{
-    bottom:-100px;
-    right:-100px;
+.circle2{
+    width:250px;
+    height:250px;
+    background:#dffcff;
+    bottom:-80px;
+    right:-80px;
 }
 
-/* MENU PRINCIPAL */
+.circle3{
+    width:180px;
+    height:180px;
+    background:#c9f7ff;
+    top:50%;
+    left:70%;
+}
+
+/* ESTRELLAS */
+
+.star{
+    position:absolute;
+    color:white;
+    font-size:25px;
+    animation: float 3s infinite ease-in-out;
+}
+
+.star1{
+    top:10%;
+    left:15%;
+}
+
+.star2{
+    top:20%;
+    right:18%;
+}
+
+.star3{
+    bottom:15%;
+    left:25%;
+}
+
+@keyframes float{
+    0%{transform:translateY(0px);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0px);}
+}
+
+/* MENU */
 
 #mainMenu{
     width:100%;
@@ -54,24 +95,31 @@ body{
 }
 
 .menuBox{
-    width:700px;
-    background:rgba(15,23,42,0.95);
-    border:2px solid cyan;
-    border-radius:30px;
-    padding:40px;
+    width:750px;
+    background:rgba(255,255,255,0.8);
+    backdrop-filter:blur(12px);
+    border-radius:35px;
+    padding:45px;
     text-align:center;
-    box-shadow:0px 0px 40px rgba(0,255,255,0.5);
+    box-shadow:0px 10px 40px rgba(0,0,0,0.08);
+    border:2px solid #dffcff;
+}
+
+.logo{
+    font-size:90px;
+    margin-bottom:15px;
+    animation: float 4s infinite ease-in-out;
 }
 
 .menuBox h1{
     font-size:60px;
-    color:cyan;
+    color:#64d8eb;
 }
 
 .menuBox p{
-    margin-top:20px;
-    color:#cbd5e1;
-    font-size:20px;
+    margin-top:15px;
+    color:#7b8ca0;
+    font-size:22px;
 }
 
 .menuBtn{
@@ -79,8 +127,9 @@ body{
     padding:18px;
     margin-top:20px;
     border:none;
-    border-radius:15px;
-    background:cyan;
+    border-radius:18px;
+    background:#b8f5ff;
+    color:#3b4a5a;
     font-size:20px;
     cursor:pointer;
     transition:0.3s;
@@ -88,8 +137,8 @@ body{
 }
 
 .menuBtn:hover{
-    background:#00aaff;
-    transform:scale(1.02);
+    transform:scale(1.03);
+    background:#9befff;
 }
 
 /* PANTALLA DEL JUEGO */
@@ -103,13 +152,15 @@ body{
 }
 
 #gameContainer{
-    width:750px;
-    background: rgba(15,23,42,0.95);
-    border:2px solid cyan;
-    border-radius:30px;
+    width:760px;
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(15px);
+    border-radius:35px;
     padding:35px;
-    box-shadow:0px 0px 40px rgba(0,255,255,0.5);
+    box-shadow:0px 10px 40px rgba(0,0,0,0.08);
 }
+
+/* TOP */
 
 #topBar{
     display:flex;
@@ -118,16 +169,20 @@ body{
 }
 
 .infoBox{
-    background:#1e293b;
-    padding:12px 20px;
-    border-radius:15px;
+    background:#f4fdff;
+    padding:14px 22px;
+    border-radius:18px;
     font-size:18px;
+    color:#5d7186;
+    box-shadow:0px 4px 10px rgba(0,0,0,0.03);
 }
+
+/* BARRA */
 
 #progressBar{
     width:100%;
     height:18px;
-    background:#1e293b;
+    background:#ecf9fc;
     border-radius:20px;
     overflow:hidden;
     margin-bottom:30px;
@@ -136,19 +191,22 @@ body{
 #progress{
     width:0%;
     height:100%;
-    background:linear-gradient(90deg,#00ffff,#00ff88);
-    transition:0.5s;
+    background:linear-gradient(90deg,#9befff,#d9fbff);
+    transition:0.4s;
 }
 
+/* PREGUNTAS */
+
 #questionBox{
-    background:#0f172a;
+    background:#f8feff;
+    border-radius:25px;
     padding:30px;
-    border-radius:20px;
 }
 
 #question{
-    font-size:28px;
+    font-size:30px;
     text-align:center;
+    color:#4f6275;
     margin-bottom:30px;
 }
 
@@ -157,25 +215,26 @@ body{
     padding:18px;
     margin-top:15px;
     border:none;
-    border-radius:15px;
-    background:#1e293b;
-    color:white;
+    border-radius:18px;
+    background:white;
+    color:#4f6275;
     font-size:18px;
     cursor:pointer;
     transition:0.3s;
+    box-shadow:0px 4px 10px rgba(0,0,0,0.04);
 }
 
 .answerBtn:hover{
-    background:#334155;
-    transform:scale(1.02);
+    transform:translateY(-2px);
+    background:#f2fcff;
 }
 
 .correct{
-    background:#16a34a !important;
+    background:#b9ffd2 !important;
 }
 
 .wrong{
-    background:#dc2626 !important;
+    background:#ffd3d3 !important;
 }
 
 #continueBtn{
@@ -183,8 +242,9 @@ body{
     padding:18px;
     margin-top:25px;
     border:none;
-    border-radius:15px;
-    background:cyan;
+    border-radius:18px;
+    background:#b8f5ff;
+    color:#3b4a5a;
     font-size:20px;
     cursor:pointer;
     display:none;
@@ -192,10 +252,10 @@ body{
 }
 
 #continueBtn:hover{
-    background:#00aaff;
+    background:#9befff;
 }
 
-/* PANTALLA FINAL */
+/* FINAL */
 
 #finalScreen{
     display:none;
@@ -207,22 +267,28 @@ body{
 
 .finalBox{
     width:700px;
-    background:rgba(15,23,42,0.95);
-    border:2px solid cyan;
-    border-radius:30px;
+    background:rgba(255,255,255,0.85);
+    border-radius:35px;
     padding:40px;
     text-align:center;
-    box-shadow:0px 0px 40px rgba(0,255,255,0.5);
+    box-shadow:0px 10px 40px rgba(0,0,0,0.08);
 }
 
 .finalBox h1{
     font-size:55px;
-    color:cyan;
+    color:#64d8eb;
 }
 
 .finalBox p{
-    margin-top:20px;
+    margin-top:15px;
+    color:#7b8ca0;
     font-size:22px;
+}
+
+.character{
+    font-size:80px;
+    margin-bottom:20px;
+    animation: float 3s infinite ease-in-out;
 }
 
 </style>
@@ -230,8 +296,15 @@ body{
 
 <body>
 
-<div class="backgroundGlow glow1"></div>
-<div class="backgroundGlow glow2"></div>
+<!-- FIGURAS -->
+
+<div class="circle circle1"></div>
+<div class="circle circle2"></div>
+<div class="circle circle3"></div>
+
+<div class="star star1">✦</div>
+<div class="star star2">✦</div>
+<div class="star star3">✦</div>
 
 <!-- MENU -->
 
@@ -239,18 +312,20 @@ body{
 
 <div class="menuBox">
 
-<h1>🤖 MISIÓN IA</h1>
+<div class="logo">🤖</div>
+
+<h1>MISIÓN IA</h1>
 
 <p>
-Juego educativo sobre patrones de crianza
+Aprende sobre patrones de crianza jugando ✨
 </p>
 
 <button class="menuBtn" onclick="startGame()">
-▶️ JUGAR
+▶️ Jugar
 </button>
 
 <button class="menuBtn" onclick="showInstructions()">
-📖 INSTRUCCIONES
+📖 Instrucciones
 </button>
 
 </div>
@@ -301,16 +376,18 @@ Continuar →
 
 <div class="finalBox">
 
-<h1>🏆 ¡COMPLETADO!</h1>
+<div class="character">🏆</div>
+
+<h1>¡COMPLETADO!</h1>
 
 <h2 id="finalPoints"></h2>
 
 <p>
-Terminaste el desafío educativo 😎
+Terminaste el reto educativo 😎
 </p>
 
 <button class="menuBtn" onclick="restartGame()">
-🔄 JUGAR OTRA VEZ
+🔄 Jugar otra vez
 </button>
 
 </div>
@@ -319,20 +396,14 @@ Terminaste el desafío educativo 😎
 
 <script>
 
-/* SONIDOS */
-
 const correctSound = new Audio("https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3");
 
 const wrongSound = new Audio("https://assets.mixkit.co/active_storage/sfx/2955/2955-preview.mp3");
 
 const clickSound = new Audio("https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3");
 
-/* VARIABLES */
-
 let current = 0;
 let points = 0;
-
-/* PREGUNTAS */
 
 const questions = [
 
@@ -348,7 +419,7 @@ answers:[
 {
 question:"¿Qué ocurre en una crianza permisiva?",
 answers:[
-{text:"Hay pocas reglas",correct:true},
+{text:"Hay pocas reglas y límites",correct:true},
 {text:"Hay castigos estrictos",correct:false},
 {text:"Existe mucha disciplina",correct:false}
 ]
@@ -386,8 +457,6 @@ answers:[
 document.getElementById("totalQuestions").innerHTML =
 questions.length;
 
-/* MENU */
-
 function startGame(){
 
 clickSound.play();
@@ -402,20 +471,15 @@ loadQuestion();
 
 function showInstructions(){
 
-alert(
-"Responde correctamente las preguntas para ganar puntos. 🎮"
-);
+alert("Responde correctamente las preguntas para ganar puntos ⭐");
 
 }
-
-/* CARGAR PREGUNTA */
 
 function loadQuestion(){
 
 const q = questions[current];
 
-document.getElementById("question").innerHTML =
-q.question;
+document.getElementById("question").innerHTML = q.question;
 
 document.getElementById("currentQuestion").innerHTML =
 current + 1;
@@ -446,8 +510,6 @@ answersDiv.appendChild(btn);
 
 }
 
-/* RESPUESTAS */
-
 function selectAnswer(button,correct){
 
 clickSound.play();
@@ -474,15 +536,12 @@ wrongSound.play();
 
 }
 
-document.getElementById("points").innerHTML =
-points;
+document.getElementById("points").innerHTML = points;
 
 document.getElementById("continueBtn").style.display =
 "block";
 
 }
-
-/* CONTINUAR */
 
 document.getElementById("continueBtn").onclick = ()=>{
 
@@ -500,8 +559,6 @@ finishGame();
 
 };
 
-/* FINAL */
-
 function finishGame(){
 
 document.getElementById("quizScreen").style.display =
@@ -513,11 +570,7 @@ document.getElementById("finalScreen").style.display =
 document.getElementById("finalPoints").innerHTML =
 "⭐ Puntuación final: " + points;
 
-document.getElementById("progress").style.width = "100%";
-
 }
-
-/* REINICIAR */
 
 function restartGame(){
 
